@@ -33,6 +33,16 @@ import csvModal from './csvReader/modal.png'
 import csvSort from './csvReader/sort.png'
 import csvSortFilter from './csvReader/sortAndFilter.png'
 
+import lostThumb from './lostAnimal/lostThumb.png'
+import lostFound from './lostAnimal/lostFound.png'
+import lostModal from './lostAnimal/lostModal.png'
+import lostDetail from './lostAnimal/lostDetail.png'
+import lostConfirmFound from './lostAnimal/lostConfirmFound.png'
+import lostCreateReport from './lostAnimal/lostCreateReport.png'
+import lostHomePageGIF from './lostAnimal/lostHomePageGIF.gif'
+import lostCreateReportGIF from './lostAnimal/lostCreateReportGIF.gif'
+
+
 export {
   myruns, myrunsStart, myrunsHistory, myrunsSettings, myrunsProfile, myrunsProfileImgDialog,
   tiledrop, tiledropPlan,
@@ -40,5 +50,6 @@ export {
   coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
   portfolioThumb,
   textbookThumb, textbookDetails, textbookLight, textbookGIF,
-  csvThumb, csvModal, csvSort, csvSortFilter
+  csvThumb, csvModal, csvSort, csvSortFilter,
+  lostThumb, lostFound, lostModal, lostDetail, lostConfirmFound, lostCreateReport, lostHomePageGIF, lostCreateReportGIF
 }

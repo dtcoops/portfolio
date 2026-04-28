@@ -6,7 +6,8 @@ import {
   coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
   portfolioThumb,
   textbookThumb, textbookDetails, textbookLight, textbookGIF,
-  csvThumb, csvModal, csvSort, csvSortFilter
+  csvThumb, csvModal, csvSort, csvSortFilter,
+  lostThumb, lostFound, lostModal, lostDetail, lostConfirmFound, lostCreateReport, lostHomePageGIF, lostCreateReportGIF
 } from '../assets'
 
 export const projects: Project[] = [
@@ -207,6 +208,46 @@ export const projects: Project[] = [
     'Dynamically generate and update HTML content using the DOM',
     'Implement search, filtering, and sorting without external JavaScript libraries',
     'Build an interactive UI using Bootstrap and custom CSS'
+  ],
+},
+{
+  id: 'lostAnimal',
+  title: 'TailBlazer',
+  topic: 'school',
+  desc: 'A frontend-only React/TypeScript web app for reporting and locating lost animals.',
+  tags: ['React', 'TypeScript', 'CSS', 'Bootstrap'],
+  thumb: lostThumb,
+  meta: [
+    { label: 'Language', value: 'TypeScript, CSS' },
+    { label: 'Framework', value: 'React' },
+    { label: 'Libraries', value: 'Bootstrap, Leaflet' },
+    { label: 'API', value: 'ImgBB, JSONBin, Nominatim, Web Crypto API' },
+    { label: 'Team', value: 'Solo' },
+    { label: 'Duration', value: '1 Month' },
+    { label: 'Completion', value: '2026' },
+  ],
+  images: [
+    { src: lostThumb, caption: 'Tail Blazer Home Page.' },
+    { src: lostFound, caption: 'Filter by Status with related postings and pins.' },
+    { src: lostModal, caption: 'Selecting a card in the aside will select its pin and display a Bootstrap modal.' },
+    { src: lostDetail, caption: 'Report Detail Page, opened from pin modal.' },
+    { src: lostConfirmFound, caption: 'Password is required to modify report to found. Password is hashed with Web Crypto API and persisted with JSONBin.' },
+    { src: lostCreateReport, caption: 'Create Report Page.' },
+    { src: lostHomePageGIF, caption: 'HomePage functionality.' },
+    { src: lostCreateReportGIF, caption: 'Report Creation Functionality.' }
+  ],
+  overview: [
+    `This web application is a lost animal tracker, allowing users to submit public animal reports with relevant information and last known location. Users can see all reports on a map and carousel and can filter reports based on report status and animal type. The creator of the report can 'mark as found' once resolved - provided they have the password from when they created their report.`,
+    `The application is built front-end only; there is no server, database, or authentication. It uses public APIs to handle image hosting and persistence.`,
+    `It was built using Vite, React, Typescript, and Bootstrap. It uses JSONBin, ImgBB, Leaflet, Nominatim, and the browser's Web Crypto API.`
+  ],
+    goals: [
+    'Create a front-end only React web app for reporting and finding lost animals.',
+    'Use public APIs to handle maps, data persistence, image storing, password hashing, and reverse geolocation.',
+    'Display user placed pins on a map with a details modal.',
+    'Build a card carousel using Bootstrap grid to display report entries alongside the map.',
+    'Implement report filtering by status and animal type.',
+    'Hash user passwords and verify a match to change a report to Found.'
   ],
 }
 ]
