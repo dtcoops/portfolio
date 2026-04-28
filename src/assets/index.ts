@@ -21,9 +21,13 @@ import coffeeTest from './coffee_recommender/coffee_test.png'
 import predictionResults from './coffee_recommender/prediction_results.png'
 import predictedProducts from './coffee_recommender/predicted_products.png'
 
+import portfolioThumb from './portfolio/portfolio.png'
+
+
 export {
   myruns, myrunsStart, myrunsHistory, myrunsSettings, myrunsProfile, myrunsProfileImgDialog,
   tiledrop, tiledropPlan,
   fileparser, fileparserMockup, fileparserCompress, fileparserDecompress,
   coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
+  portfolioThumb
 }

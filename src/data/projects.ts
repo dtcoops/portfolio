@@ -4,6 +4,7 @@ import {
   tiledrop, tiledropPlan,
   fileparser, fileparserMockup, fileparserCompress, fileparserDecompress,
   coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
+  portfolioThumb
 } from '../assets'
 
 export const projects: Project[] = [
@@ -35,8 +36,7 @@ export const projects: Project[] = [
     goals: [
       'Implement required features by recreating a provided .apk file for each tutorial component.',
       'Test features to ensure functionality for typical use cases.',
-    ],
-    liveUrl: 'https://github.com/dtcoops/myruns',
+    ]
   },
   {
     id: 'tiledrop',
@@ -110,4 +110,29 @@ export const projects: Project[] = [
       'Train a classifier to predict roast preference from user inputs.',
     ],
   },
+  {
+  id: 'portfolio',
+  title: 'Portfolio Website',
+  topic: 'personal',
+  desc: 'Single-page app built with React and TypeScript, featuring component-based architecture, CSS Modules, and client-side navigation.',
+  tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
+  thumb: portfolioThumb,
+  meta: [
+    { label: 'Type', value: 'Personal Project' },
+    { label: 'Frontend', value: 'React, TypeScript' },
+    { label: 'Tooling', value: 'Vite, CSS Modules' },
+    { label: 'Deployment', value: 'GitHub Pages' },
+    { label: 'Team', value: 'Solo' },
+  ],
+  images: [
+    { src: portfolioThumb, caption: 'This website!' }
+  ],
+  overview: `A portfolio SPA rebuilt from a vanilla HTML/CSS/JS site into a React and TypeScript application. Designed around a gallery and detail view pattern with client-side navigation driven by a single useState to simplify and prevent router dependency. CSS Modules keep component styles scoped, with shared design tokens in a global stylesheet.`,
+  goals: [
+    'Migrate an existing vanilla JS portfolio to React and TypeScript to demonstrate modern frontend skills.',
+    'Implement client-side navigation between gallery and detail views using a single useState to simplify and prevent router dependency.',
+    'Structure components, types, and styles in a maintainable and scalable way.',
+  ],
+  liveUrl: 'https://github.com/dtcoops/portfolio',
+},
 ]
