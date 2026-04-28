@@ -1,4 +1,4 @@
-import type { Topic } from '../types';
+import type { Topic } from '../../types';
 
 import style from './Header.module.css';
 
@@ -35,4 +35,4 @@ function Header({ activeTopic, onTopicChange }: HeaderProps) {
   );
 }
 
-export { Header };
+export { Header }
