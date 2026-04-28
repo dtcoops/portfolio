@@ -3,3 +3,5 @@
 export * from "./Gallery/Gallery";
 export * from "./Header/Header";
 export * from "./ProjectCard/ProjectCard";
+export * from "./ProjectDetail/ProjectDetail";
+

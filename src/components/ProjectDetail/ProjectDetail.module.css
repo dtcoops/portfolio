@@ -1,21 +1,20 @@
-/* Project page layout */
-.project-layout{
+.projectLayout{
     display: grid;
     grid-template-columns: 260px minmax(0, 1100px) 1fr;
     gap: 24px;
     justify-content: center;
   }
   
-  .project-content{ grid-column: 2; }
-  
-  /* Left rail */
-  .project-meta{
+  .projectContent{ grid-column: 2; }
+
+    /* Left rail */
+  .projectMeta{
     position: sticky;
     top: 96px;
   }
   
   @media (max-width: 1100px){
-    .project-meta{
+    .projectMeta{
       position: relative;
       top: 0;
       margin-left: 0;
@@ -23,27 +22,29 @@
     }
   }
   
-  .meta-item{
+  .metaItem{
     display: flex;
     flex-direction: column;
     gap: 4px;
     padding: 10px 0;
   }
-  .meta-item:not(:last-child){
+  .metaItem:not(:last-child){
     border-bottom: 1px solid var(--border);
   }
-  .meta-label{
+  .metaLabel{
     font-size: 11px;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--muted);
   }
-  .meta-value{
+  .metaValue{
     font-size: 14px;
     font-weight: 600;
     color: var(--ink);
   }
-  
+
+
+
   /* Project figure gallery thumbnails */
   /* Figure */
   .figure{
@@ -55,7 +56,7 @@
     box-shadow: 0 12px 30px rgba(0,0,0,0.35);
   }
 
-  .figure-stage{
+  .figureStage{
     width: 100%;
     height: 520px;              /* fixed height: no jumping */
     background: rgba(0,0,0,0.35);
@@ -65,12 +66,12 @@
   }
 
     /* The main image fits inside the fixed area */
-  .figure-stage #figure-main{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
+  .figureStage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
   
   .figure figcaption{
     padding: 12px 14px;
@@ -113,4 +114,3 @@
     background: var(--border);
     margin: 32px 0;
   }
-  

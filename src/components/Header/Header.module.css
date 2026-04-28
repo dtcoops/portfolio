@@ -17,3 +17,5 @@
     color: inherit;
     text-decoration: none;
   }
+
+  .tabs{ margin-left:auto; display:flex; gap:8px; flex-wrap:wrap; }

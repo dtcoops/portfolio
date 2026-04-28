@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Header, Gallery} from './components';
+import { Header, Gallery, ProjectDetail} from './components';
 
 import { projects } from './data/projects';
 import type { Project, Topic } from './types';
@@ -16,7 +16,7 @@ function App() {
         selectedProject ? (
           <ProjectDetail
           project = { selectedProject }
-          onBack = { setSelectedProject(null) }
+          onBack = { () => setSelectedProject(null) }
           />
         ) : (
         <Gallery
