@@ -23,11 +23,22 @@ import predictedProducts from './coffee_recommender/predicted_products.png'
 
 import portfolioThumb from './portfolio/portfolio.png'
 
+import textbookThumb from './textbookGallery/textbookThumb.png'
+import textbookDetails from './textbookGallery/details.png'
+import textbookGIF from './textbookGallery/textbooks.gif'
+import textbookLight from './textbookGallery/lightmode.png'
+
+import csvThumb from './csvReader/csvThumb.png'
+import csvModal from './csvReader/modal.png'
+import csvSort from './csvReader/sort.png'
+import csvSortFilter from './csvReader/sortAndFilter.png'
 
 export {
   myruns, myrunsStart, myrunsHistory, myrunsSettings, myrunsProfile, myrunsProfileImgDialog,
   tiledrop, tiledropPlan,
   fileparser, fileparserMockup, fileparserCompress, fileparserDecompress,
   coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
-  portfolioThumb
+  portfolioThumb,
+  textbookThumb, textbookDetails, textbookLight, textbookGIF,
+  csvThumb, csvModal, csvSort, csvSortFilter
 }

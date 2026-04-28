@@ -4,7 +4,9 @@ import {
   tiledrop, tiledropPlan,
   fileparser, fileparserMockup, fileparserCompress, fileparserDecompress,
   coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
-  portfolioThumb
+  portfolioThumb,
+  textbookThumb, textbookDetails, textbookLight, textbookGIF,
+  csvThumb, csvModal, csvSort, csvSortFilter
 } from '../assets'
 
 export const projects: Project[] = [
@@ -59,6 +61,7 @@ export const projects: Project[] = [
       'Design and implement a grid-based hazard system.',
       'Build a level scripting pipeline for repeatable puzzle sequences.',
     ],
+    liveUrl: 'https://github.com/dtcoops/Tile-Drop-2',
   },
   {
     id: 'fileparse',
@@ -127,12 +130,68 @@ export const projects: Project[] = [
   images: [
     { src: portfolioThumb, caption: 'This website!' }
   ],
-  overview: `A portfolio SPA rebuilt from a vanilla HTML/CSS/JS site into a React and TypeScript application. Designed around a gallery and detail view pattern with client-side navigation driven by a single useState to simplify and prevent router dependency. CSS Modules keep component styles scoped, with shared design tokens in a global stylesheet.`,
+  overview: `A portfolio SPA rebuilt from a vanilla HTML/CSS/JS site into a React and TypeScript application. Designed around a gallery and detail view pattern with client-side navigation driven by a single useState to simplify navigation. CSS Modules keep component styles scoped, with shared design tokens in a global stylesheet.`,
   goals: [
     'Migrate an existing vanilla JS portfolio to React and TypeScript to demonstrate modern frontend skills.',
-    'Implement client-side navigation between gallery and detail views using a single useState to simplify and prevent router dependency.',
+    'Create a Single-page application with user navigation by using a useState to transition pages.',
     'Structure components, types, and styles in a maintainable and scalable way.',
   ],
   liveUrl: 'https://github.com/dtcoops/portfolio',
 },
+{
+  id: 'textbookGallery',
+  title: 'Texbook Gallery Website',
+  topic: 'school',
+  desc: 'A Textbook Gallery created using HTML, CSS, and Bootstrap grid.',
+  tags: ['HTML', 'CSS', 'Bootstrap'],
+  thumb: textbookThumb,
+  meta: [
+    { label: 'Language', value: 'HTML, CSS' },
+    { label: 'Libraries', value: 'Bootstrap' },
+    { label: 'Team', value: 'Solo' },
+    { label: 'Duration', value: '1 Month' },
+    { label: 'Completion', value: '2026' },
+  ],
+  images: [
+    { src: textbookThumb, caption: 'Textbook Gallery home page' },
+    { src: textbookDetails, caption: 'Textbook Gallery Details page' },
+    { src: textbookLight, caption: 'Light Mode' },
+    { src: textbookGIF, caption: 'GIF to show interactivity' }
+  ],
+  overview: `A textbook gallery website created for SFU's CMPT 272 - Client-side Development course. All of the pages on the website were created with only HTML, CSS, and Bootstrap (for responsive grid layouts). No JavaScript, CSS frameworks or preprocessors were used.`,
+  goals: [
+    'Create a multi-page web application with navigation and consistent header and footers using HTML and CSS',
+    'Implement animation and transitions using CSS',
+    'Style both light and dark modes, and use grid to respond to different screen sizes.'
+  ],
+},
+{
+  id: 'csvReader',
+  title: 'CSV Reader Web App',
+  topic: 'school',
+  desc: 'A fixed format CSV reader with user controlled sort and filter options.',
+  tags: ['JavaSctipt', 'HTML', 'CSS', 'Bootstrap'],
+  thumb: csvThumb,
+  meta: [
+    { label: 'Language', value: 'JavaScript, HTML, CSS' },
+    { label: 'Libraries', value: 'Bootstrap' },
+    { label: 'Team', value: 'Solo' },
+    { label: 'Duration', value: '1 Month' },
+    { label: 'Completion', value: '2026' },
+  ],
+  images: [
+    { src: csvThumb, caption: 'CSV Reader Home Page.' },
+    { src: csvModal, caption: 'Bootstrap Modal Implementation with File Reader.' },
+    { src: csvSort, caption: 'Sort functionality.' },
+    { src: csvSortFilter, caption: 'Sort and Filter functionality.' }
+  ],
+  overview: `A CSV Reader with sort and filter functionality created used HTML, CSS, and JavaScript. It also utilizes Bootstrap for modals and grid implementation. The website lets a user download a .CSV file following the required data layout contraints from the assignment and lets the user modify how the data is displayed through sorting and filtering operations. The two modals are used to create an interface for loading data and a display for showing object details in full.`,
+  goals: [
+    'Read and parse a CSV file using vanilla JavaScript',
+    'Represent structured data using JavaScript objects and arrays',
+    'Dynamically generate and update HTML content using the DOM',
+    'Implement search, filtering, and sorting without external JavaScript libraries',
+    'Build an interactive UI using Bootstrap and custom CSS'
+  ],
+}
 ]
