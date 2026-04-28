@@ -1,84 +1,86 @@
 .projectLayout{
-    display: grid;
-    grid-template-columns: 260px minmax(0, 1100px) 1fr;
-    gap: 24px;
-    justify-content: center;
-  }
-  
-  .projectContent{ grid-column: 2; }
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1100px) 1fr;
+  gap: 24px;
+  justify-content: center;
+}
 
-    /* Left rail */
+.projectContent{ grid-column: 2; }
+
+  /* Left rail */
+.projectMeta{
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1100px){
   .projectMeta{
-    position: sticky;
-    top: 96px;
+    position: relative;
+    top: 0;
+    margin-left: 0;
+    width: auto;
   }
-  
-  @media (max-width: 1100px){
-    .projectMeta{
-      position: relative;
-      top: 0;
-      margin-left: 0;
-      width: auto;
-    }
-  }
-  
-  .metaItem{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 10px 0;
-  }
-  .metaItem:not(:last-child){
-    border-bottom: 1px solid var(--border);
-  }
-  .metaLabel{
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .metaValue{
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink);
-  }
+}
 
+.metaItem{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 0;
+  margin: 0 1rem;
+}
+.metaItem:not(:last-child){
+  border-bottom: 1px solid var(--border);
+}
+.metaLabel{
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.metaValue{
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink);
+}
 
+/* Project figure gallery thumbnails */
+/* Figure */
+.figure{
+  margin: 18px 0 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
 
-  /* Project figure gallery thumbnails */
-  /* Figure */
-  .figure{
-    margin: 18px 0 8px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-  }
+.figureStage{
+  width: 100%;
+  height: 520px;              /* fixed height: no jumping */
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .figureStage{
-    width: 100%;
-    height: 520px;              /* fixed height: no jumping */
-    background: rgba(0,0,0,0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-    /* The main image fits inside the fixed area */
-  .figureStage img {
+  /* The main image fits inside the fixed area */
+.figureStage img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
-  
-  .figure figcaption{
-    padding: 12px 14px;
-    color: var(--muted);
-    font-size: 0.95rem;
-    border-top: 1px solid var(--border);
-  }
+
+.figure figcaption{
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--border);
+}
 
 .lightbox {
   position: fixed;
@@ -99,37 +101,41 @@
 }
 
   
-  .thumbs{
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
-  .thumb{
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 2px;
-    background: transparent;
-    cursor: pointer;
-    opacity: 0.75;
-  }
-  .thumb.active{
-    border-color: var(--accent);
-    opacity: 1;
-  }
-  .thumb img{
-    width: 72px;
-    height: 48px;
-    object-fit:contain;
-    border-radius: 6px;
-    display: block;
-  }
-  .thumb:hover{ opacity: 1; }
-  
-  /* Divider */
-  .divider{
-    border: none;
-    height: 1px;
-    background: var(--border);
-    margin: 32px 0;
-  }
+.thumbs{
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.thumb{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2px;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.75;
+}
+.thumb.active{
+  border-color: var(--accent);
+  opacity: 1;
+}
+.thumb img{
+  width: 72px;
+  height: 48px;
+  object-fit:contain;
+  border-radius: 6px;
+  display: block;
+}
+.thumb:hover{ opacity: 1; }
+
+/* Divider */
+.divider{
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 32px 0;
+}
+
+.sectiontitle {
+  font-weight: 600;
+}

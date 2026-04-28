@@ -11,12 +11,16 @@ function App() {
 
   return (
     <>
-      <Header activeTopic={activeTopic} onTopicChange={setActiveTopic} showFilters={!selectedProject}/>
+      <Header 
+        activeTopic={activeTopic} 
+        onTopicChange={setActiveTopic} 
+        showFilters={!selectedProject} 
+        onBack = {() => setSelectedProject(null) }
+      />
       {
         selectedProject ? (
           <ProjectDetail
           project = { selectedProject }
-          onBack = { () => setSelectedProject(null) }
           />
         ) : (
         <Gallery

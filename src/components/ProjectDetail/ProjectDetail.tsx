@@ -5,19 +5,15 @@ import style from './ProjectDetail.module.css';
 
 interface ProjectDetailProps {
   project: Project
-  onBack: () => void
 }
 
-function ProjectDetail({ project, onBack }: ProjectDetailProps) {
+function ProjectDetail({ project }: ProjectDetailProps) {
   const [activeImg, setActiveImg] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
     <main className={`${style.section} ${style.container} ${style.projectLayout}`}>
       <aside className={style.projectMeta}>
-        <button className={style.tab} onClick={onBack} style={{ marginBottom: '16px' }}>
-            Back
-        </button>
 
         {project.meta.map((item) => (
           <div key={item.label} className={style.metaItem}>
@@ -96,7 +92,7 @@ function ProjectDetail({ project, onBack }: ProjectDetailProps) {
 
         {project.goals.length > 0 && (
           <>
-            <h2 className={style.sectionTitle}>Goals</h2>
+            <h2 className={style.sectiontitle}>Goals</h2>
             <ul>
               {project.goals.map((goal, i) => (
                 <li key={i} className={style.cardDescription}>{goal}</li>
