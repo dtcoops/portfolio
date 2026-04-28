@@ -34,8 +34,10 @@ export const projects: Project[] = [
       { src: myrunsProfile, caption: 'MyRuns profile activity.' },
       { src: myrunsProfileImgDialog, caption: 'MyRuns profile change image dialog fragment.' },
     ],
-    overview: `An exercise tracking mobile application created as part of lecture tutorials for Simon Fraser CMPT 362 - Mobile Applications Programming and Design. This project took place throughout the semester with each tutorial building the application up part by part. Users can modify their profile, view past exercise activities and relevant information, and track new activities either manually, with GPS, or automatically with a Weka classifier to determine if the user is walking, running, or standing.`,
-    goals: [
+    overview: [
+      `An exercise tracking mobile application created as part of lecture tutorials for Simon Fraser CMPT 362 - Mobile Applications Programming and Design. This project took place throughout the semester with each tutorial building the application up part by part. Users can modify their profile, view past exercise activities and relevant information, and track new activities either manually, with GPS, or automatically with a Weka classifier to determine if the user is walking, running, or standing.`,
+    ],
+      goals: [
       'Implement required features by recreating a provided .apk file for each tutorial component.',
       'Test features to ensure functionality for typical use cases.',
     ]
@@ -56,10 +58,13 @@ export const projects: Project[] = [
       { src: tiledrop, caption: 'TileDrop gameplay screenshot.' },
       { src: tiledropPlan, caption: 'Level design planning document.' },
     ],
-    overview: `A Unity puzzle platformer prototype featuring grid-based hazards and scripted level sequences. Built as a personal project to explore Unity's C# scripting, tilemap system, and game feel fundamentals.`,
+    overview: [
+      `TileDrop is a single-player platformer/puzzle prototype built using Unity. The original level design document was created for a VFS game design certificate in 2021. The project takes that original design sketch and is built atop an existing player controller, enemy, and tile drop foundation.`,
+      `The player must navigate two characters across gaps by jumping on falling tiles while avoiding floating enemies. Each scene/level was designed to intentionally introduce a new mechanic and/or steadily increase the difficulty.`,
+    ],
     goals: [
-      'Design and implement a grid-based hazard system.',
-      'Build a level scripting pipeline for repeatable puzzle sequences.',
+      'Design a multi-level puzzle game where mechanics are introduced intuitively, to build upon one another without requiring explicit instrucction.',
+      'Complete a prototype from a legacy incomplete build. Working from an inherited codebase to bring the original document design to a playable state.',
     ],
     liveUrl: 'https://github.com/dtcoops/Tile-Drop-2',
   },
@@ -81,7 +86,9 @@ export const projects: Project[] = [
       { src: fileparserCompress, caption: 'Compression output.' },
       { src: fileparserDecompress, caption: 'Decompression output.' },
     ],
-    overview: `A Python desktop application with a Tkinter GUI for parsing raw .bmp file data, with support for both compression and decompression of bitmap image data.`,
+    overview: [
+      `A Python desktop application with a Tkinter GUI for parsing raw .bmp file data, with support for both compression and decompression of bitmap image data.`,
+    ],
     goals: [
       'Parse raw binary .bmp file structure and display metadata.',
       'Implement compression and decompression algorithms with visual output.',
@@ -107,8 +114,10 @@ export const projects: Project[] = [
       { src: predictionResults, caption: 'Prediction results output.' },
       { src: predictedProducts, caption: 'Predicted product recommendations.' },
     ],
-    overview: `A machine learning pipeline built with scikit-learn that uses the Great American Coffee Taste Test (GACTT) dataset to match users to coffee roast profiles based on their preferences.`,
-    goals: [
+    overview: [
+      `A machine learning pipeline built with scikit-learn that uses the Great American Coffee Taste Test (GACTT) dataset to match users to coffee roast profiles based on their preferences.`,
+    ],
+      goals: [
       'Clean and process the GACTT survey dataset using pandas.',
       'Train a classifier to predict roast preference from user inputs.',
     ],
@@ -130,8 +139,10 @@ export const projects: Project[] = [
   images: [
     { src: portfolioThumb, caption: 'This website!' }
   ],
-  overview: `A portfolio SPA rebuilt from a vanilla HTML/CSS/JS site into a React and TypeScript application. Designed around a gallery and detail view pattern with client-side navigation driven by a single useState to simplify navigation. CSS Modules keep component styles scoped, with shared design tokens in a global stylesheet.`,
-  goals: [
+  overview: [
+    `A portfolio SPA rebuilt from a vanilla HTML/CSS/JS site into a React and TypeScript application. Designed around a gallery and detail view pattern with client-side navigation driven by a single useState to simplify navigation. CSS Modules keep component styles scoped, with shared design tokens in a global stylesheet.`,
+  ],
+    goals: [
     'Migrate an existing vanilla JS portfolio to React and TypeScript to demonstrate modern frontend skills.',
     'Create a Single-page application with user navigation by using a useState to transition pages.',
     'Structure components, types, and styles in a maintainable and scalable way.',
@@ -158,8 +169,10 @@ export const projects: Project[] = [
     { src: textbookLight, caption: 'Light Mode' },
     { src: textbookGIF, caption: 'GIF to show interactivity' }
   ],
-  overview: `A textbook gallery website created for SFU's CMPT 272 - Client-side Development course. All of the pages on the website were created with only HTML, CSS, and Bootstrap (for responsive grid layouts). No JavaScript, CSS frameworks or preprocessors were used.`,
-  goals: [
+  overview: [
+    `A textbook gallery website created for SFU's CMPT 272 - Client-side Development course. All of the pages on the website were created with only HTML, CSS, and Bootstrap (for responsive grid layouts). No JavaScript, CSS frameworks or preprocessors were used.`,
+  ],
+    goals: [
     'Create a multi-page web application with navigation and consistent header and footers using HTML and CSS',
     'Implement animation and transitions using CSS',
     'Style both light and dark modes, and use grid to respond to different screen sizes.'
@@ -185,8 +198,10 @@ export const projects: Project[] = [
     { src: csvSort, caption: 'Sort functionality.' },
     { src: csvSortFilter, caption: 'Sort and Filter functionality.' }
   ],
-  overview: `A CSV Reader with sort and filter functionality created used HTML, CSS, and JavaScript. It also utilizes Bootstrap for modals and grid implementation. The website lets a user download a .CSV file following the required data layout contraints from the assignment and lets the user modify how the data is displayed through sorting and filtering operations. The two modals are used to create an interface for loading data and a display for showing object details in full.`,
-  goals: [
+  overview: [
+    `A CSV Reader with sort and filter functionality created used HTML, CSS, and JavaScript. It also utilizes Bootstrap for modals and grid implementation. The website lets a user download a .CSV file following the required data layout contraints from the assignment and lets the user modify how the data is displayed through sorting and filtering operations. The two modals are used to create an interface for loading data and a display for showing object details in full.`,
+  ],
+    goals: [
     'Read and parse a CSV file using vanilla JavaScript',
     'Represent structured data using JavaScript objects and arrays',
     'Dynamically generate and update HTML content using the DOM',

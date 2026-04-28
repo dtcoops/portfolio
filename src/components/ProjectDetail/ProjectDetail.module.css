@@ -120,7 +120,13 @@
   border-radius: 8px;
 }
 
-  
+.cardDescription {
+  margin-bottom: 1rem;
+}
+
+.cardGoals {
+  margin-bottom: 0.5rem;
+}
 .thumbs{
   display: flex;
   gap: 8px;

@@ -19,7 +19,7 @@ export interface Project {
   thumb: string
   images: ProjectImage[]
   meta: MetaItem[]
-  overview: string
+  overview: string[]
   goals: string[]
   liveUrl?: string
 }

@@ -89,7 +89,9 @@ function ProjectDetail({ project }: ProjectDetailProps) {
 
         <div style={{ marginTop: '18px' }}>
           <h2 className={style.sectiontitle}>Overview</h2>
-          <p className={style.cardDescription}>{project.overview}</p>
+          {project.overview.map((para, i) => (
+            <p key={i} className={style.cardDescription}>{para}</p>
+          ))}
         </div>
 
         {project.goals.length > 0 && (
@@ -97,7 +99,7 @@ function ProjectDetail({ project }: ProjectDetailProps) {
             <h2 className={style.sectiontitle}>Goals</h2>
             <ul>
               {project.goals.map((goal, i) => (
-                <li key={i} className={style.cardDescription}>{goal}</li>
+                <li key={i} className={style.cardGoals}>{goal}</li>
               ))}
             </ul>
           </>
