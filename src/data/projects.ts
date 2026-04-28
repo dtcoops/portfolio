@@ -1,4 +1,10 @@
 import type { Project } from '../types'
+import {
+  myruns, myrunsStart, myrunsHistory, myrunsSettings, myrunsProfile, myrunsProfileImgDialog,
+  tiledrop, tiledropPlan,
+  fileparser, fileparserMockup, fileparserCompress, fileparserDecompress,
+  coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
+} from '../assets'
 
 export const projects: Project[] = [
   {
@@ -7,7 +13,7 @@ export const projects: Project[] = [
     topic: 'school',
     desc: 'Android sensor fusion for run tracking; exports GPX and summary stats.',
     tags: ['Kotlin', 'Java', 'Android Studio', 'Weka'],
-    thumb: './src/assets/myruns/myruns.png',
+    thumb: myruns,
     meta: [
       { label: 'Platform', value: 'Android' },
       { label: 'Language', value: 'Kotlin, Java' },
@@ -18,12 +24,12 @@ export const projects: Project[] = [
       { label: 'Completion', value: '2025' },
     ],
     images: [
-      { src: './src/assets/myruns/myruns.png', caption: 'MyRuns activity tracker demonstrating GPS routes using Android Studio emulator locations.' },
-      { src: './src/assets/myruns/myruns_start.png', caption: 'MyRuns application on startup. Shows Start activity with start fragment.' },
-      { src: './src/assets/myruns/myruns_history.png', caption: 'MyRuns History fragment.' },
-      { src: './src/assets/myruns/myruns_settings.png', caption: 'MyRuns Settings fragment.' },
-      { src: './src/assets/myruns/myruns_profile.png', caption: 'MyRuns profile activity.' },
-      { src: './src/assets/myruns/myruns_profile_img_dialog.png', caption: 'MyRuns profile change image dialog fragment.' },
+      { src: myruns, caption: 'MyRuns activity tracker demonstrating GPS routes using Android Studio emulator locations.' },
+      { src: myrunsStart, caption: 'MyRuns application on startup. Shows Start activity with start fragment.' },
+      { src: myrunsHistory, caption: 'MyRuns History fragment.' },
+      { src: myrunsSettings, caption: 'MyRuns Settings fragment.' },
+      { src: myrunsProfile, caption: 'MyRuns profile activity.' },
+      { src: myrunsProfileImgDialog, caption: 'MyRuns profile change image dialog fragment.' },
     ],
     overview: `An exercise tracking mobile application created as part of lecture tutorials for Simon Fraser CMPT 362 - Mobile Applications Programming and Design. This project took place throughout the semester with each tutorial building the application up part by part. Users can modify their profile, view past exercise activities and relevant information, and track new activities either manually, with GPS, or automatically with a Weka classifier to determine if the user is walking, running, or standing.`,
     goals: [
@@ -38,15 +44,15 @@ export const projects: Project[] = [
     topic: 'personal',
     desc: 'Unity C# prototype with grid hazards and level scripting.',
     tags: ['Unity', 'C#', 'Prototype'],
-    thumb: './src/assets/tiledrop/tiledrop.png',
+    thumb: tiledrop,
     meta: [
       { label: 'Engine', value: 'Unity' },
       { label: 'Language', value: 'C#' },
       { label: 'Team', value: 'Solo' },
     ],
     images: [
-      { src: './src/assets/tiledrop/tiledrop.png', caption: 'TileDrop gameplay screenshot.' },
-      { src: './src/assets/tiledrop/tiledrop_plan.png', caption: 'Level design planning document.' },
+      { src: tiledrop, caption: 'TileDrop gameplay screenshot.' },
+      { src: tiledropPlan, caption: 'Level design planning document.' },
     ],
     overview: `A Unity puzzle platformer prototype featuring grid-based hazards and scripted level sequences. Built as a personal project to explore Unity's C# scripting, tilemap system, and game feel fundamentals.`,
     goals: [
@@ -60,17 +66,17 @@ export const projects: Project[] = [
     topic: 'school',
     desc: 'Python application with GUI to parse .bmp file data and compress and decompress data.',
     tags: ['Python', 'Tkinter'],
-    thumb: './src/assets/file_parser/fileparser.png',
+    thumb: fileparser,
     meta: [
       { label: 'Language', value: 'Python' },
       { label: 'Libraries', value: 'Tkinter' },
       { label: 'Team', value: 'Solo' },
     ],
     images: [
-      { src: './src/assets/file_parser/fileparser.png', caption: 'File Parser main interface.' },
-      { src: './src/assets/file_parser/mockup.png', caption: 'Initial mockup design.' },
-      { src: './src/assets/file_parser/fileparser_compress.png', caption: 'Compression output.' },
-      { src: './src/assets/file_parser/fileparser_decompress.png', caption: 'Decompression output.' },
+      { src: fileparser, caption: 'File Parser main interface.' },
+      { src: fileparserMockup, caption: 'Initial mockup design.' },
+      { src: fileparserCompress, caption: 'Compression output.' },
+      { src: fileparserDecompress, caption: 'Decompression output.' },
     ],
     overview: `A Python desktop application with a Tkinter GUI for parsing raw .bmp file data, with support for both compression and decompression of bitmap image data.`,
     goals: [
@@ -84,7 +90,7 @@ export const projects: Project[] = [
     topic: 'school',
     desc: 'scikit-learn pipeline to match users to roasts with GACTT data.',
     tags: ['Python', 'pandas', 'scikit-learn'],
-    thumb: './src/assets/coffee_recommender/coffee.png',
+    thumb: coffee,
     meta: [
       { label: 'Language', value: 'Python' },
       { label: 'Libraries', value: 'pandas, scikit-learn' },
@@ -92,11 +98,11 @@ export const projects: Project[] = [
       { label: 'Team', value: 'Solo' },
     ],
     images: [
-      { src: './src/assets/coffee_recommender/coffee.png', caption: 'Coffee Recommender overview.' },
-      { src: './src/assets/coffee_recommender/coffee_favs.png', caption: 'Favourite roast analysis.' },
-      { src: './src/assets/coffee_recommender/coffee_test.png', caption: 'Model test results.' },
-      { src: './src/assets/coffee_recommender/prediction_results.png', caption: 'Prediction results output.' },
-      { src: './src/assets/coffee_recommender/predicted_products.png', caption: 'Predicted product recommendations.' },
+      { src: coffee, caption: 'Coffee Recommender overview.' },
+      { src: coffeeFavs, caption: 'Favourite roast analysis.' },
+      { src: coffeeTest, caption: 'Model test results.' },
+      { src: predictionResults, caption: 'Prediction results output.' },
+      { src: predictedProducts, caption: 'Predicted product recommendations.' },
     ],
     overview: `A machine learning pipeline built with scikit-learn that uses the Great American Coffee Taste Test (GACTT) dataset to match users to coffee roast profiles based on their preferences.`,
     goals: [
