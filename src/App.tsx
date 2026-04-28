@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Header } from './components/Header/Header';
+import { Header, Gallery} from './components';
 
+import { projects } from './data/projects';
 import type { Project, Topic } from './types';
 
 function App() {
