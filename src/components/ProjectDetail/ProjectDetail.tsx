@@ -10,6 +10,7 @@ interface ProjectDetailProps {
 
 function ProjectDetail({ project, onBack }: ProjectDetailProps) {
   const [activeImg, setActiveImg] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
     <main className={`${style.section} ${style.container} ${style.projectLayout}`}>
@@ -27,9 +28,9 @@ function ProjectDetail({ project, onBack }: ProjectDetailProps) {
 
         <div className={style.metaItem}>
           <span className={style.metaLabel}>Tags</span>
-          <div className={style.tags} style={{ marginTop: '4px' }}>
+          <div className="tags" style={{ marginTop: '4px' }}>
             {project.tags.map((tag) => (
-              <span key={tag} className={style.tag}>{tag}</span>
+              <span key={tag} className="tag">{tag}</span>
             ))}
           </div>
         </div>
@@ -55,11 +56,12 @@ function ProjectDetail({ project, onBack }: ProjectDetailProps) {
 
         {project.images.length > 0 && (
           <figure className={style.figure}>
-            <div className={style.figureStage}>
+            <div className={style.figureStage} onClick={() => setLightboxOpen(true)}>
               <img
-                id="figureMain"
                 src={project.images[activeImg].src}
                 alt={project.images[activeImg].caption}
+                style={{ cursor: 'zoom-in' }
+                }
               />
             </div>
             <figcaption>
@@ -79,6 +81,12 @@ function ProjectDetail({ project, onBack }: ProjectDetailProps) {
               )}
             </figcaption>
           </figure>
+          
+        )}
+        {lightboxOpen && (
+          <div className={style.lightbox} onClick={() => setLightboxOpen(false)}>
+            <img src={project.images[activeImg].src} alt={project.images[activeImg].caption} />
+          </div>
         )}
 
         <div style={{ marginTop: '18px' }}>
@@ -101,6 +109,7 @@ function ProjectDetail({ project, onBack }: ProjectDetailProps) {
       </section>
     </main>
   )
+  
 }
 
 export { ProjectDetail }

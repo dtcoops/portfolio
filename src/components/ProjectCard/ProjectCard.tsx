@@ -20,9 +20,9 @@ function ProjectCard({ project, onSelect }: ProjectCardProps) {
                     </header>
                     <section>
                         <p className={style.cardDescription}>{project.desc}</p>
-                        <div className={style.tags}>
+                        <div className="tags">
                         {project.tags.map((tag) => (
-                            <span key={tag} className={style.tag}>{tag}</span>
+                            <span key={tag} className="tag">{tag}</span>
                         ))}
                         </div>
                     </section>
