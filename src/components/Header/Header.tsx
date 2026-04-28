@@ -5,6 +5,7 @@ import style from './Header.module.css';
 interface HeaderProps {
     activeTopic: Topic
     onTopicChange: (topic: Topic) => void
+    showFilters?: boolean
 }
 
 const topics: { label: string; value: Topic }[] = [
@@ -13,12 +14,13 @@ const topics: { label: string; value: Topic }[] = [
   { label: 'School', value: 'school' },
 ]
 
-function Header({ activeTopic, onTopicChange }: HeaderProps) {
+function Header({ activeTopic, onTopicChange, showFilters = true }: HeaderProps) {
   return (
     <header className={style.topbar}>
         <div className={`${style.container} ${style.topbarInner}`}>
             <span className={style.brand}>Daniel Cooper</span>
-            <nav className={style.tabs}>
+            {showFilters && (
+                <nav className={style.tabs}>
                 {topics.map((t) => (
                     <button
                     key={t.value}
@@ -30,6 +32,7 @@ function Header({ activeTopic, onTopicChange }: HeaderProps) {
                     </button>
                 ))}
             </nav>
+            )}
         </div>
     </header>
   );

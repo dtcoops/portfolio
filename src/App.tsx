@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <Header activeTopic={activeTopic} onTopicChange={setActiveTopic}/>
+      <Header activeTopic={activeTopic} onTopicChange={setActiveTopic} showFilters={!selectedProject}/>
       {
         selectedProject ? (
           <ProjectDetail
