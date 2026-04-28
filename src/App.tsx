@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Header, Gallery, ProjectDetail} from './components';
+import { Header, Gallery, ProjectDetail, Footer} from './components';
 
 import { projects } from './data/projects';
 import type { Project, Topic } from './types';
@@ -29,6 +29,7 @@ function App() {
           onSelectProject = { setSelectedProject }
         />
       )}
+      <Footer />
     </>
   );
 }
