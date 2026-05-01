@@ -84,12 +84,18 @@
 /* Project figure gallery thumbnails */
 /* Figure */
 .figure{
-  margin: 18px 0 8px;
+  margin: 18px 14px 8px;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+@media (min-width: 768px) {
+  .cardDescription {
+    margin: 18px 0 8px;
+  }
 }
 
 .figureStage {
@@ -142,11 +148,26 @@
 
 .cardDescription {
   margin-bottom: 1rem;
+  padding: 0 14px;
+}
+
+@media (min-width: 768px) {
+  .cardDescription {
+    padding: 0;
+  }
 }
 
 .cardGoals {
   margin-bottom: 0.5rem;
+  padding: 0 14px;
 }
+
+@media (min-width: 768px) {
+  .cardGoals {
+    padding: 0;
+  }
+}
+
 .thumbs{
   display: flex;
   gap: 8px;
@@ -184,4 +205,21 @@
 
 .sectiontitle {
   font-weight: 600;
+  padding: 0 14px;
+}
+
+@media (min-width: 768px) {
+  .sectiontitle {
+    padding: 0;
+  }
+}
+
+.cardTitle {
+  padding: 0 14px;
+}
+
+@media (min-width: 768px) {
+  .cardTitle {
+    padding: 0;
+  }
 }
