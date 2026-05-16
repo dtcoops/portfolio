@@ -10,6 +10,11 @@ export interface ProjectImage {
   caption: string
 }
 
+export interface DetailsSection {
+  heading: string
+  points: string[]
+}
+
 export interface Project {
   id: string
   title: string
@@ -22,4 +27,5 @@ export interface Project {
   overview: string[]
   goals: string[]
   liveUrl?: string
+  details?: DetailsSection[]
 }

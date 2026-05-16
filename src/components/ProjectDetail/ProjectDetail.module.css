@@ -1,8 +1,15 @@
+li, p {
+  font-size: 1.1rem;
+}
+
 .projectLayout {
   display: grid;
   gap: 24px;
   justify-content: center;
   grid-template-columns: 1fr;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -13,6 +20,7 @@
 
 .projectContent { 
   grid-column: 1; 
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -149,6 +157,7 @@
 .cardDescription {
   margin-bottom: 1rem;
   padding: 0 14px;
+  line-height: 1.6;
 }
 
 @media (min-width: 768px) {
@@ -222,4 +231,8 @@
   .cardTitle {
     padding: 0;
   }
+}
+
+.moreDetail {
+  text-align: center;
 }

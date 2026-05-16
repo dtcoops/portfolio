@@ -1,7 +1,7 @@
 import type { Project } from '../types'
 import {
   myruns, myrunsStart, myrunsHistory, myrunsSettings, myrunsProfile, myrunsProfileImgDialog,
-  tiledrop, tiledropPlan,
+  tiledrop, tiledropPlan, level1, level2, enemyExplosion, toss, tileFall,
   fileparser, fileparserMockup, fileparserCompress, fileparserDecompress,
   coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
   portfolioThumb,
@@ -47,8 +47,8 @@ export const projects: Project[] = [
     id: 'tiledrop',
     title: 'TileDrop — Puzzle Platformer',
     topic: 'personal',
-    desc: 'Unity C# prototype with grid hazards and level scripting.',
-    tags: ['Unity', 'C#', 'Prototype'],
+    desc: 'Unity C# puzzle platformer built from a 2021 game design document.',
+    tags: ['Unity', 'C#'],
     thumb: tiledrop,
     meta: [
       { label: 'Engine', value: 'Unity' },
@@ -56,18 +56,141 @@ export const projects: Project[] = [
       { label: 'Team', value: 'Solo' },
     ],
     images: [
-      { src: tiledrop, caption: 'TileDrop gameplay screenshot.' },
       { src: tiledropPlan, caption: 'Level design planning document.' },
+      { src: level1, caption: 'Level 1 Layout' },
+      { src: level2, caption: 'Level 2 Layout' },
+      { src: tileFall, caption: 'Tile Fall Mechanic' },
+      { src: enemyExplosion, caption: 'Enemy Explosion Mechanic' },
+      { src: toss, caption: 'Double Jump Mechanic' },
     ],
     overview: [
-      `TileDrop is a single-player platformer/puzzle prototype built using Unity. The original level design document was created for a VFS game design certificate in 2021. The project takes that original design sketch and is built atop an existing player controller, enemy, and tile drop foundation.`,
-      `The player must navigate two characters across gaps by jumping on falling tiles while avoiding floating enemies. Each scene/level was designed to intentionally introduce a new mechanic and/or steadily increase the difficulty.`,
+      `TileDrop started as a game design document I wrote for a VFS certificate in 2021. It was specifically intended to teach fundamental level design skills; each level was required to increase in difficulty and incrementally introduce new mechanics in an intuitive way. Years later I found my original sketch document and built it into a playable prototype.`  
     ],
     goals: [
       'Design a multi-level puzzle game where mechanics are introduced intuitively, to build upon one another without requiring explicit instrucction.',
       'Complete a prototype from a legacy incomplete build. Working from an inherited codebase to bring the original document design to a playable state.',
     ],
     liveUrl: 'https://github.com/dtcoops/Tile-Drop-2',
+    details: [
+      {
+        heading: 'The Design',
+        points: [
+          `TileDrop is a puzzle platformer where the player must navigate two characters across a chasm of falling tiles. 
+          I kept the mechanics deliberately simple: tiles that fall after a single touch, a standard jump, and a double jump 
+          that ties the two together. This double jump would function similar to a throw, one character would jump ontop of the other to be caught and tossed to the next tile. 
+          To prevent a player from simply hopping linearly across a level, each character was assigned a role - forcing players to think about positioning to solve the puzzles.`,
+
+          `In my VFS level design class, we were shown Super Mario World's approach to intuitive teaching - the famous first Goomba 
+          encounter works because the level geometry almost guarantees the player jumps on it without being told to. I 
+          tried to apply the same principle: Level 1 has a clear start and end, and is impossible to complete without jumping 
+          onto falling tiles. No instructions needed.`,
+
+          `Level 2 added the double jump by creating intersecting paths that couldn't be completed without discovering the ability. 
+          I also introduced enemies here, intentionally red as is tradition for danger and in-game explosive elements, and retroactively added a passive  
+          introductory enemy in Level 1 to prime the player for their introduction later, this one in particular is only a threat if 
+          the player deliberately touches it. My intent was to commuincate this early, so that players would know not to touch them when
+          they are introduced in level 2.`,
+
+          `Level 3 raised the stakes with moving tiles and more strategically placed enemies. Level 4 was a mastery challenge — no new 
+          mechanics, just everything learned from the previous three levels applied under pressure.`,
+        ]
+      },
+      {
+        heading: 'The Plan',
+        points: [
+          `My goal was to test what I had designed and go beyond following Unity Pathways Tutorials by creating something entirely my own. 
+          Rather than chasing polish or a shippable product, I set a simpler bar: take a design 
+          document and turn it into something fully playable and hopefully - fun. If the blockout worked, 
+          the project was a success.`,
+        ]
+      },
+      {
+        heading: 'The Build',
+        points: [
+          `My approach was deliberately incremental. I started with Level 1's layout and the player controller, getting those working together before 
+          touching anything else. From there I added the tile falling system. Tiles needed to register contact, track remaining lives, change material 
+          to signal state, and fall only after the player breaks contact with the tile. 
+          A minimum Y threshold destroyed both tiles and players after falling to a set depth, keeping the scene clean.`,
+          
+          `With tiles working I turned to enemies. Enemies patrol between points, and I figured that the moving tiles in later levels could be implemeted 
+          in the same way. Rather than writing the same patrol logic twice I abstracted it into a BaseNPC class that both Enemy and Tile inherit from. 
+          This was the first time in the project I had to think architecturally rather than just functionally — the decision saved significant 
+          time later when building Level 3's moving tile section`,
+          
+          `With those systems in place Level 1 was fully buildable and testable. Level 2 introduced 
+          the cooperative throw mechanic, which turned out to be significantly more complex than 
+          anticipated. Detecting roles, storing throw direction from Jumper's last known velocity, 
+          calculating a ballistic arc, and managing physics state across the sequence worked in isolation but introduced bugs when combined. 
+          The throw mechanic also broke the existing tile fall system. The tile's contact tracking relied on 
+          simple collision enter and exit events, but the throw sequence introduced a third state — 
+          a player lifting off a tile while holding another — that the original logic hadn't 
+          accounted for. Resolving it required tracking contacts per player by instance ID and 
+          remembering which players had left while in a holding state, so their subsequent exit 
+          after releasing could be correctly ignored.`,
+          
+          `Midway through implementing the throw I realized I had no level reset function. If a player fell, the level continued in a broken state. 
+          I added a death event system using C#'s event pattern — PlayerController fires OnPlayerDied, GameManager listens and triggers which 
+          reloads the scene. The event pattern kept the two systems decoupled — PlayerController doesn't need to know GameManager exists, 
+          it just broadcasts the event and moves on. A direct reference from PlayerController to GameManager would have worked, but would have created 
+          a tight dependency between two systems that have no reason to know about each other.`,
+          
+          `To make the full game playable end-to-end I built a SceneManager singleton — a persistent object 
+          that survives scene loads and handles all scene transitions through a single interface. Rather than 
+          any system calling Unity's SceneM anager directly, everything routes through it. This made adding 
+          the level reset, level exit, and sequential level progression a matter of calling one method rather 
+          than scattering scene loading logic across multiple scripts.`,
+
+          `Level 3 was almost purely a construction task. All the systems were in place, the moving tiles just needed their speeds 
+          calculated to keep them synchronized, enemies needed patrol paths set, and the layout needed to be built out in the engine. 
+          Having a solid foundation meant the final level came together quickly, which felt like a validation 
+          of the incremental approach.` 
+        ]
+      },
+      {
+        heading: `UX`,
+        points: [
+          `Designing intuitive controls for two characters on a single input device was one of the 
+          more interesting constraints of the project and something I had not thought about in designing the documentation. 
+          I opted for a held left mouse button to control one character and a held right mouse button for the other — 
+          allowing the player to move each character independently, or hold both to move them simultaneously.`,
+                  
+          `In practice this works, but it is the least intuitive part of the game. The held click as 
+          an activation condition isn't a pattern most players bring from prior experience, and 
+          without any onboarding it requires discovery rather than intuition. This would potentially be more intuitive 
+          with a controller with left and right triggers, the tradeoff is accessibility; it would limit who can play.`,
+          
+          `In a future iteration I would attempt to solve this with visual feedback. The game currently contains UI elements, and there is no indicator of which 
+          character is left and right. This is a shortcoming. To address this, my intent is to introduce a portrait system in the bottom left and right of the screen. 
+          I could then highlight the active player portriat while the mouse is held, associate each character to a protrait, and add small mouse button 
+          icons to the portrait to communicate the control scheme at a glance.`
+        ]
+      },
+      {
+        heading: `Retrospective`,
+        points: [
+          `The throw mechanic took significantly longer than expected and surfaced something I hadn't 
+          considered: physics event ordering. Unity fires collision events in an order I couldn't 
+          control, which meant game state I assumed would be set wasn't always ready when I needed it. 
+          The fix required tracking state across multiple frames rather than reading it at the moment 
+          of the event.`,
+
+          `The incremental approach was the right call. Having a playable foundation at every 
+          stage meant new systems could be tested against real gameplay immediately, and problems 
+          surfaced early rather than compounding. The BaseNPC decision in particular paid off when Level 3's 
+          moving tiles required exactly the same behaviour as enemies.`,
+
+          `If I were starting again I'd prototype the character interaction in isolation before 
+          building levels around it. `,
+
+          `I also underestimated how much camera choice affects playability. Top-down looked flat and 
+          lost the sense of depth that made the falling tiles feel dangerous. Third person over-the-shoulder 
+          restored that depth but prevented players from seeing the full puzzle which made planning ahead feel 
+          more like guesswork. Orthographic solved both problems: it preserves the three-dimensional read of the 
+          space while keeping the entire layout visible at once, and eliminated the depth perception 
+          issues that had been making jumps feel inconsistent from the start.`
+        ]
+      }
+    ]
   },
   {
     id: 'fileparse',

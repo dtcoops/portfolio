@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Project } from '../../types';
+import type { Project, DetailsSection } from '../../types';
 
 import style from './ProjectDetail.module.css';
 
@@ -106,6 +106,21 @@ function ProjectDetail({ project }: ProjectDetailProps) {
         )}
 
         <hr className={style.divider} />
+        
+        {project.details && (
+          <h2 className={`${style.sectiontitle} ${style.moreDetail}`}>More Details</h2>
+        )}
+
+        {project.details && project.details.map((section: DetailsSection) => (
+          <div key={section.heading}>
+            <h2 className={style.sectiontitle}>{section.heading}</h2>
+            
+            {section.points.map((point, i) => (
+              <p key={i} className={style.cardDescription}>{point}</p>
+            ))}
+            <br></br>
+          </div>
+        ))}
       </section>
     </main>
   )

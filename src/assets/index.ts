@@ -9,6 +9,11 @@ import myrunsProfileImgDialog from './myruns/myruns_profile_img_dialog.png'
 
 import tiledrop from './tiledrop/tiledrop.png'
 import tiledropPlan from './tiledrop/tiledrop_plan.png'
+import level1 from './tiledrop/level1.png'
+import level2 from './tiledrop/level2.png'
+import tileFall from './tiledrop/tileFallGif.gif'
+import enemyExplosion from './tiledrop/enemyExplosion.gif'
+import toss from './tiledrop/doubleJump.gif'
 
 import fileparser from './file_parser/fileparser.png'
 import fileparserMockup from './file_parser/mockup.png'
@@ -45,7 +50,7 @@ import lostCreateReportGIF from './lostAnimal/lostCreateReportGIF.gif'
 
 export {
   myruns, myrunsStart, myrunsHistory, myrunsSettings, myrunsProfile, myrunsProfileImgDialog,
-  tiledrop, tiledropPlan,
+  tiledrop, tiledropPlan, level1, level2, enemyExplosion, toss, tileFall,
   fileparser, fileparserMockup, fileparserCompress, fileparserDecompress,
   coffee, coffeeFavs, coffeeTest, predictionResults, predictedProducts,
   portfolioThumb,
