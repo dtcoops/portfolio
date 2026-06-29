@@ -47,6 +47,16 @@ import lostCreateReport from './lostAnimal/lostCreateReport.png'
 import lostHomePageGIF from './lostAnimal/lostHomePageGIF.gif'
 import lostCreateReportGIF from './lostAnimal/lostCreateReportGIF.gif'
 
+import gameBoard from './robberyRush/board.png'
+import alarmToken from './robberyRush/Alarm Token.png'
+import escapeToken from './robberyRush/Escape Token.png'
+import guardToken from './robberyRush/Guard Game Token.png'
+import playerToken from './robberyRush/Holly Game Token.png'
+import eventCard from './robberyRush/shortcut.png'
+import itemCard from './robberyRush/Sutton Hoo Card 2.png'
+import hazardCard from './robberyRush/You Trip.png'
+import playerInventory from './robberyRush/player inventory.png'
+import ruleBook from './robberyRush/The Rulebook.pdf'
 
 export {
   myruns, myrunsStart, myrunsHistory, myrunsSettings, myrunsProfile, myrunsProfileImgDialog,
@@ -56,5 +66,6 @@ export {
   portfolioThumb,
   textbookThumb, textbookDetails, textbookLight, textbookGIF,
   csvThumb, csvModal, csvSort, csvSortFilter,
-  lostThumb, lostFound, lostModal, lostDetail, lostConfirmFound, lostCreateReport, lostHomePageGIF, lostCreateReportGIF
+  lostThumb, lostFound, lostModal, lostDetail, lostConfirmFound, lostCreateReport, lostHomePageGIF, lostCreateReportGIF,
+  gameBoard, playerInventory, alarmToken, escapeToken, guardToken, playerToken, eventCard, itemCard, hazardCard, ruleBook
 }

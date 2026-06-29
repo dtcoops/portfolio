@@ -7,7 +7,16 @@ import {
   portfolioThumb,
   textbookThumb, textbookDetails, textbookLight, textbookGIF,
   csvThumb, csvModal, csvSort, csvSortFilter,
-  lostThumb, lostFound, lostModal, lostDetail, lostConfirmFound, lostCreateReport, lostHomePageGIF, lostCreateReportGIF
+  lostThumb, lostFound, lostModal, lostDetail, lostConfirmFound, lostCreateReport, lostHomePageGIF, lostCreateReportGIF,
+  gameBoard,
+  playerInventory,
+  alarmToken,
+  escapeToken,
+  guardToken,
+  playerToken,
+  hazardCard,
+  eventCard,
+  itemCard
 } from '../assets'
 
 export const projects: Project[] = [
@@ -70,7 +79,10 @@ export const projects: Project[] = [
       'Design a multi-level puzzle game where mechanics are introduced intuitively, to build upon one another without requiring explicit instrucction.',
       'Complete a prototype from a legacy incomplete build. Working from an inherited codebase to bring the original document design to a playable state.',
     ],
-    liveUrl: 'https://github.com/dtcoops/Tile-Drop-2',
+    links: [{
+      label: 'GitHub', 
+      url: 'https://github.com/dtcoops/Tile-Drop-2' 
+    }],
     details: [
       {
         heading: 'The Design',
@@ -271,7 +283,11 @@ export const projects: Project[] = [
     'Create a Single-page application with user navigation by using a useState to transition pages.',
     'Structure components, types, and styles in a maintainable and scalable way.',
   ],
-  liveUrl: 'https://github.com/dtcoops/portfolio',
+  links: [
+    {
+      label:'GitHub', 
+      url:'https://github.com/dtcoops/portfolio'
+    }],
 },
 {
   id: 'textbookGallery',
@@ -372,5 +388,49 @@ export const projects: Project[] = [
     'Implement report filtering by status and animal type.',
     'Hash user passwords and verify a match to change a report to Found.'
   ],
+},
+{
+  id: 'robberyRush',
+  title: 'Robbery Rush',
+  topic: 'school',
+  desc: 'A high-speed game of risk, reward, and betrayal. Can your crew pull off the heist when everyone is in it for themselves?',
+  tags: ['Game Design'],
+  thumb: gameBoard,
+  meta: [
+    { label: 'Type', value: 'Board Game' },
+    { label: 'Players', value: '2–5' },
+    { label: 'Tools', value: 'Google Flow (AI image generation)' },
+    { label: 'Team', value: 'Group Project (5 person)' },
+    { label: 'Duration', value: '2 Month' },
+    { label: 'Completion', value: '2026' },
+  ],
+  links: [
+    { label: 'Project Site', url: 'https://sites.google.com/view/robberyrush/home' },
+    { label: 'Rulebook', url: 'https://sites.google.com/view/robberyrush/rules' },
+    ],
+  images: [
+    { src: gameBoard, caption: 'Robbery Rush Game Board' },
+    { src: playerInventory, caption: 'Player Inventory Sheet' },
+    { src: alarmToken, caption: 'Alarm Token Example' },
+    { src: escapeToken, caption: 'Escape Token Example' },
+    { src: guardToken, caption: 'Guard Token Example' },
+    { src: playerToken, caption: 'Player Token Example' },
+    { src: hazardCard, caption: 'Hazard Card Example' },
+    { src: eventCard, caption: 'Event Card Example' },
+    { src: itemCard, caption: 'Item Card Example' },
+  ],
+  overview: [
+    'Robbery rush is a tile based board game where players start by choosing which heist specialist they want to be, and navigate through a highly secured museum to try and obtain the highest valued loot possible, and escape before they get trapped inside the lockdown.'
+  ],
+  goals:[],
+  details: [
+    {
+        heading: '',
+        points: [
+          'Developed as a 5-person team project for SFU IAT 210.',
+          'My primary contributions were the rulebook design and layout, card and token artwork generated with Google Flow, and portions of the project website.'
+        ]
+      },
+  ]
 }
 ]

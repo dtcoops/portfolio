@@ -15,6 +15,11 @@ export interface DetailsSection {
   points: string[]
 }
 
+export interface LinkItem {
+  label: string
+  url: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -27,5 +32,6 @@ export interface Project {
   overview: string[]
   goals: string[]
   liveUrl?: string
+  links?: LinkItem[]
   details?: DetailsSection[]
 }
