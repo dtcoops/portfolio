@@ -425,10 +425,22 @@ export const projects: Project[] = [
   goals:[],
   details: [
     {
-        heading: '',
+        heading: 'About',
         points: [
           'Developed as a 5-person team project for SFU IAT 210.',
-          'My primary contributions were the rulebook design and layout, card and token artwork generated with Google Flow, and portions of the project website.'
+          'I was involved across all stages from ideation to final prototype. My primary responsibilities were game inspiration, writing and designing the rulebook, and generating the visual assets — card artwork, tokens, and board imagery — using Google Flow.',
+          'The project followed a structured design process: group ideation and concept development, iterative playtesting with documented feedback, mechanical refinement based on test results, and final production of all game components and the project website.',        
+        ]
+    },
+    {
+        heading: 'Key Design Decisions',
+        points: [
+          'Our game was designed around the risk, reward, and betrayal at its core.',
+          `Incremental Alarm as a Turn Counter. We decided to implement a turn counter to restrict the length of the game, after each turn the players would roll two dice and the alarm would sound if the roll sum was less than or equal to the current turn count.
+          This guaranteed safety on the first turn, and increased the risk of having to escape the longer the heist goes on.`,
+          `The board was extensively redesigned with playtesting. Originally it started fully randomized with players placing tiles as they explored, the final fixed design made movement simpler to understand and ensured players had to venture further into the museum.`,
+          `We wanted to give players the opportunity to backstab their heist partners by allowing them to steal items from the museum for themselves, rather than for the team. Hiding cards and tracking scores over multiple games became frustrating, challenging, and introduced the potential for cheating.
+          The inventory cards that we created allow players to track their scores easily, and allowed players to hide items underneath the inventory board itself by placing them next to the item multiplier slots. The item's values could then easily be calculated at the end of the game.`
         ]
       },
   ]
