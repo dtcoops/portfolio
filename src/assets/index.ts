@@ -58,6 +58,15 @@ import hazardCard from './robberyRush/You Trip.png'
 import playerInventory from './robberyRush/player inventory.png'
 import ruleBook from './robberyRush/The Rulebook.pdf'
 
+import galleryRoom from './portfolio3D/GalleryCam.png'
+import hubRoom from './portfolio3D/hubRoom.png'
+import loreDumpRoom from './portfolio3D/loreDump.png'
+import loading from './portfolio3D/loading.png'
+import startScreen from './portfolio3D/startScreen.png'
+import portal from './portfolio3D/portal.gif'
+import tileDropRoom from './portfolio3D/tileDrop.png'
+import tileDropVista from './portfolio3D/TileDropVista.png'
+
 export {
   myruns, myrunsStart, myrunsHistory, myrunsSettings, myrunsProfile, myrunsProfileImgDialog,
   tiledrop, tiledropPlan, level1, level2, enemyExplosion, toss, tileFall,
@@ -67,5 +76,6 @@ export {
   textbookThumb, textbookDetails, textbookLight, textbookGIF,
   csvThumb, csvModal, csvSort, csvSortFilter,
   lostThumb, lostFound, lostModal, lostDetail, lostConfirmFound, lostCreateReport, lostHomePageGIF, lostCreateReportGIF,
-  gameBoard, playerInventory, alarmToken, escapeToken, guardToken, playerToken, eventCard, itemCard, hazardCard, ruleBook
+  gameBoard, playerInventory, alarmToken, escapeToken, guardToken, playerToken, eventCard, itemCard, hazardCard, ruleBook,
+  galleryRoom, hubRoom, loreDumpRoom, loading, startScreen, portal, tileDropRoom, tileDropVista
 }

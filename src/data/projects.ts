@@ -16,7 +16,15 @@ import {
   playerToken,
   hazardCard,
   eventCard,
-  itemCard
+  itemCard,
+  galleryRoom,
+  hubRoom,
+  loreDumpRoom,
+  loading,
+  startScreen,
+  portal,
+  tileDropVista,
+  tileDropRoom
 } from '../assets'
 
 export const projects: Project[] = [
@@ -425,24 +433,67 @@ export const projects: Project[] = [
   goals:[],
   details: [
     {
-        heading: 'About',
-        points: [
-          'Developed as a 5-person team project for SFU IAT 210.',
-          'I was involved across all stages from ideation to final prototype. My primary responsibilities were game inspiration, writing and designing the rulebook, and generating the visual assets — card artwork, tokens, and board imagery — using Google Flow.',
-          'The project followed a structured design process: group ideation and concept development, iterative playtesting with documented feedback, mechanical refinement based on test results, and final production of all game components and the project website.',        
-        ]
+      heading: 'About',
+      points: [
+        'Developed as a 5-person team project for SFU IAT 210.',
+        'I was involved across all stages from ideation to final prototype. My primary responsibilities were game inspiration, writing and designing the rulebook, and generating the visual assets using Google Flow - board, cards, token, inventory sheets - to create the visual components for the website and game.',
+        'The project followed a structured design process: group ideation and concept development, iterative playtesting with documented feedback, mechanical refinement based on test results, and final production of all game components and the project website.',        
+      ]
     },
     {
-        heading: 'Key Design Decisions',
-        points: [
-          'Our game was designed around the risk, reward, and betrayal at its core.',
-          `Incremental Alarm as a Turn Counter. We decided to implement a turn counter to restrict the length of the game, after each turn the players would roll two dice and the alarm would sound if the roll sum was less than or equal to the current turn count.
-          This guaranteed safety on the first turn, and increased the risk of having to escape the longer the heist goes on.`,
-          `The board was extensively redesigned with playtesting. Originally it started fully randomized with players placing tiles as they explored, the final fixed design made movement simpler to understand and ensured players had to venture further into the museum.`,
-          `We wanted to give players the opportunity to backstab their heist partners by allowing them to steal items from the museum for themselves, rather than for the team. Hiding cards and tracking scores over multiple games became frustrating, challenging, and introduced the potential for cheating.
-          The inventory cards that we created allow players to track their scores easily, and allowed players to hide items underneath the inventory board itself by placing them next to the item multiplier slots. The item's values could then easily be calculated at the end of the game.`
-        ]
-      },
+      heading: 'Key Design Decisions',
+      points: [
+        'Our game was designed around the risk, reward, and betrayal at its core.',
+        `Incremental Alarm as a Turn Counter. We decided to implement a turn counter to restrict the length of the game, after each turn the players would roll two dice and the alarm would sound if the roll sum was less than or equal to the current turn count.
+        This guaranteed safety on the first turn, and increased the risk of having to escape the longer the heist goes on.`,
+        `The board was extensively redesigned with playtesting. Originally it started fully randomized with players placing tiles as they explored, the final fixed design made movement simpler to understand and ensured players had to venture further into the museum.`,
+        `We wanted to give players the opportunity to backstab their heist partners by allowing them to steal items from the museum for themselves, rather than for the team. Hiding cards and tracking scores over multiple games became frustrating, challenging, and introduced the potential for cheating.
+        The inventory cards that we created allow players to track their scores easily, and allowed players to hide items underneath the inventory board itself by placing them next to the item multiplier slots. The item's values could then easily be calculated at the end of the game.`
+      ]
+    },
+  ]
+},
+{
+  id: 'portfolio3D',
+  title: 'Gamified 3D Portfolio',
+  topic: 'personal',
+  desc: 'An interactive 3D portfolio built in React Three Fiber, inspired by Super Mario 64\'s painting mechanic — navigate between scenes through portal-style transitions.',
+  tags:  ['React', 'TypeScript', 'React Three Fiber', 'Rapier'],
+  thumb: galleryRoom,
+  meta: [
+    { label: 'Languages', value: 'TypeScript' },
+    { label: 'Framework', value: 'React, React Three Fiber' },
+    { label: 'Physics', value: 'Rapier' },
+    { label: 'State', value: 'Zustand' },
+    { label: 'Team', value: 'Solo' },
+    { label: 'Duration', value: 'Ongoing' },
+  ],
+  links: [
+      { label: 'Live Site', url: 'https://dtcoops.github.io/portfolio-3D/' },
+    ],
+  images: [
+    { src: hubRoom, caption: 'Hub Room' },
+    { src: startScreen, caption: 'Opening Scene' },
+    { src: loreDumpRoom, caption: 'The Lore Dump - About Me' },
+    { src: galleryRoom, caption: 'Gallery Space' },
+    { src: loading, caption: 'Loading Screen' },
+    { src: portal, caption: 'Portal Effect' },
+    { src: tileDropRoom, caption: 'Tile Drop Room' },
+    { src: tileDropVista, caption: 'Tile Drop Vista' },
+  ],
+  overview: [
+    'A gamified portfolio experience built from scratch in React Three Fiber and Rapier physics — tools I learned specifically for this project. Players navigate a 3D hub world and enter portals to explore different scenes, inspired by the painting mechanic in Super Mario 64.',
+  ],
+  goals:[],
+  details: [
+    {
+      heading: 'Technical Highlights',
+      points: [
+        'Built a custom character controller with Rapier physics, separating physics simulation from rendered position to avoid jitter.',
+        'Implemented a Zustand global store to manage scene transitions, return position, and visited-scene state across the application.',
+        'Used React Router with lazy-loaded scenes and a Suspense fallback loading screen for performance.',
+      ]
+    },
   ]
 }
 ]
