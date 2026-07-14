@@ -3,6 +3,9 @@ import dotenv from 'dotenv';
 import { Project } from '../models/project';
 import type { Project as ProjectType } from '../types/project';
 
+// Call in terminal if changes to array are made
+// npx tsx src/scripts/populateDb.ts 
+
 const projectsData: ProjectType[] = [
   {
     id: 'myruns',
@@ -460,8 +463,7 @@ const projectsData: ProjectType[] = [
       points: [
         'Developed as a 5-person team project for SFU IAT 210.',
         'I was involved across all stages from ideation to final prototype. My primary responsibilities were game inspiration, writing and designing the rulebook, and generating the visual assets using Google Flow - board, cards, token, inventory sheets - to create the visual components for the website and game.',
-        'The project followed a structured design process: group ideation and concept development, iterative playtesting with documented feedback, mechanical refinement based on test results, and final production of all game components and the project website.',        
-      ]
+        `The project followed a structured design process: group ideation and concept development, iterative playtesting using paper prototypes with documented feedback, mechanical refinement based on test results, and production of pitch-ready visual assets and a project website — aimed at a pitch-ready state rather than a finished retail product.` ]
     },
     {
       heading: 'Key Design Decisions',
