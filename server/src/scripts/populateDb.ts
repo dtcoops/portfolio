@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import { Project } from '../models/Project';
+import { Project } from '../models/project';
 import type { Project as ProjectType } from '../types/project';
 
 const projectsData: ProjectType[] = [
