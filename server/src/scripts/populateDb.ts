@@ -246,32 +246,79 @@ const projectsData: ProjectType[] = [
   id: 'portfolio',
   title: 'Portfolio Website',
   topic: 'personal',
-  desc: 'Single-page app built with React and TypeScript, featuring component-based architecture, CSS Modules, and client-side navigation.',
-  tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
+  desc: 'Full-stack portfolio app — React/TypeScript client with an Express/MongoDB backend, images hosted on Cloudinary and deployed independently on Render.',
+  tags: ['React', 'TypeScript', 'Vite', 'CSS Modules', 'Node.js', 'Express', 'MongoDB'],
   thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004908/portfolio_vprrzn.png',
   meta: [
     { label: 'Type', value: 'Personal Project' },
     { label: 'Frontend', value: 'React, TypeScript' },
+    { label: 'Backend', value: 'Node.js, Express, MongoDB (Atlas)' },
     { label: 'Tooling', value: 'Vite, CSS Modules' },
-    { label: 'Deployment', value: 'GitHub Pages' },
+    { label: 'Deployment', value: 'GitHub Pages (Client), Render (API)' },
     { label: 'Team', value: 'Solo' },
   ],
   images: [
     { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004908/portfolio_vprrzn.png', caption: 'This website!' }
   ],
   overview: [
-    `A portfolio SPA rebuilt from a vanilla HTML/CSS/JS site into a React and TypeScript application. Designed around a gallery and detail view pattern with client-side navigation driven by a single useState to simplify navigation. CSS Modules keep component styles scoped, with shared design tokens in a global stylesheet.`,
+    `A portfolio SPA rebuilt from a vanilla HTML/CSS/JS site into a React and TypeScript application, later extended with a full Express/MongoDB backend. The client uses a gallery and detail view pattern with client-side navigation driven by a single useState. Project data is served from MongoDB Atlas through an Express API deployed on Render, with images hosted on Cloudinary rather than bundled as static assets. CSS Modules keep component styles scoped, with shared design tokens in a global stylesheet.`,
   ],
-    goals: [
+  goals: [
     'Migrate an existing vanilla JS portfolio to React and TypeScript to demonstrate modern frontend skills.',
     'Create a Single-page application with user navigation by using a useState to transition pages.',
     'Structure components, types, and styles in a maintainable and scalable way.',
+    'Extend the project into a full-stack application with an Express/MongoDB backend, deployed independently from the client.',
+    'Migrate image assets to Cloudinary to reduce bundle size and practice working with third-party media hosting.',
   ],
   links: [
     {
       label:'GitHub', 
       url:'https://github.com/dtcoops/portfolio'
     }],
+  details: [
+    {
+      heading: 'From Static Site to Full Stack',
+      points: [
+        `This project started as a frontend-only SPA — project data lived in a static TypeScript file, bundled directly into the client at build time. 
+        I later rebuilt it as a proper client/server monorepo to get real backend experience: an Express API backed by MongoDB Atlas, with images migrated from bundled assets to Cloudinary. 
+        The client and server deploy independently (the React app to GitHub Pages, the API to Render) communicating over a standard REST endpoint.`,
+
+        `The migration was deliberately incremental. I got the server talking to MongoDB and returning real data before touching anything else, keeping images as local placeholder strings so I was only ever validating one new piece at a time. 
+        Once that pipeline worked end-to-end locally, I moved on to Cloudinary, then finally to actual deployment.`,
+      ]
+    },
+    {
+      heading: 'Backend Structure',
+      points: [
+        `The server follows a standard routes/controllers/models split. A single Project model (Mongoose schema) defines the shape of a project document, matching the same TypeScript interface the client already used. 
+        I duplicated that interface into the server rather than setting up a shared workspace package, a deliberate simplification given the project's scale.`,
+
+        `Images are hosted on Cloudinary rather than saved to the server's own disk. MongoDB only stores a reference to each image's' URL string, while Cloudinary stores and serves the actual file. 
+        This matters because of how Render's free tier works: its filesystem is ephemeral, meaning any file written directly to disk is deleted on every redeploy or restart. 
+        If image uploads were instead saved to a local folder on the server, they'd work until the next deploy, then silently disappear. By keeping the actual image bytes in Cloudinary and only storing a URL reference in Mongo, 
+        image files never touch Render's disk at all, so there's nothing for a redeploy to wipe out in the first place.`]
+    },
+    {
+      heading: 'Deployment Debugging',
+      points: [
+        `Getting this actually live surfaced a handful of real deployment issues I hadn't hit before: 
+        a case-sensitivity bug where a mismatched import (\`Project\` vs \`project\`) worked fine locally on Windows but failed to build on Render's Linux environment; 
+        a CORS misconfiguration from a naming mismatch between my \`.env\` variable and the code reading it; 
+        TypeScript build tools living in \`devDependencies\` getting skipped entirely because Render's production install doesn't install dev dependencies by default; 
+        and an Atlas connection failure that turned out to be an IP allowlist only permitting my own machine, not Render's servers.`,
+
+        `None of these were exotic problems, but each one only appeared once real deployment infrastructure was involved rather than local development — a good reminder that "works on my machine" and "works in production" are genuinely different bars to clear.`,
+      ]
+    },
+    {
+      heading: 'Handling Cold Starts',
+      points: [
+        `Render's free tier spins the server down after roughly 15 minutes of inactivity, meaning the first request after idle time can take 20-30 seconds to respond. 
+        Rather than let that read as a broken site, I built a loading state with skeleton cards matching the gallery's grid layout, with a short message explaining the delay; 
+        so, a slow first load looks intentional rather than stuck. In testing, an actual cold start took about 11 seconds, comfortably inside the window I'd designed for.`,
+      ]
+    },
+  ]
   },
   {
   id: 'textbookGallery',
