@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { requireAdmin } from '../middleware/requireAdmin';
+
 const router = Router();
 
 router.post('/login', (req: Request, res: Response) => {
@@ -19,10 +19,6 @@ router.post('/login', (req: Request, res: Response) => {
   );
   
   res.json({ token });
-});
-
-router.get('/test', requireAdmin, (req: Request, res: Response) => {
-  res.json({ message: 'You are authenticated!' });
 });
 
 export default router;
