@@ -7,7 +7,7 @@ import projectRoutes from './routes/projects';
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: process.env.CORS_ORIGINS?.split(',') ?? [] }));
+app.use(cors({ origin: process.env.CLIENT_ORIGIN?.split(',') ?? [] }));
 app.use(express.json());
 
 app.use('/api/projects', projectRoutes);
