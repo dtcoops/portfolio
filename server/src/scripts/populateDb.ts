@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { Project } from '../models/Project';
-import type { Project as ProjectType } from '../types/Project';
+import type { Project as ProjectType } from '../types/project';
 
 const projectsData: ProjectType[] = [
   {
@@ -10,7 +10,7 @@ const projectsData: ProjectType[] = [
     topic: 'school',
     desc: 'Android sensor fusion for run tracking; exports GPX and summary stats.',
     tags: ['Kotlin', 'Java', 'Android Studio', 'Weka'],
-    thumb: 'myruns.png',
+    thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004889/myruns_s0kjmc.png',
     meta: [
       { label: 'Platform', value: 'Android' },
       { label: 'Language', value: 'Kotlin, Java' },
@@ -21,12 +21,12 @@ const projectsData: ProjectType[] = [
       { label: 'Completion', value: '2025' },
     ],
     images: [
-      { src: 'myruns.png', caption: 'MyRuns activity tracker demonstrating GPS routes using Android Studio emulator locations.' },
-      { src: 'myruns_start.png', caption: 'MyRuns application on startup. Shows Start activity with start fragment.' },
-      { src: 'myruns_history.png', caption: 'MyRuns History fragment.' },
-      { src: 'myruns_settings.png', caption: 'MyRuns Settings fragment.' },
-      { src: 'myruns_profile.png', caption: 'MyRuns profile activity.' },
-      { src: 'myruns_profile_img_dialog.png', caption: 'MyRuns profile change image dialog fragment.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004889/myruns_s0kjmc.png', caption: 'MyRuns activity tracker demonstrating GPS routes using Android Studio emulator locations.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004895/myruns_start_kkpe67.png', caption: 'MyRuns application on startup. Shows Start activity with start fragment.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004890/myruns_history_g9majg.png', caption: 'MyRuns History fragment.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004894/myruns_settings_rz9xs4.png', caption: 'MyRuns Settings fragment.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004892/myruns_profile_nfl3zm.png', caption: 'MyRuns profile activity.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004893/myruns_profile_img_dialog_fiyiuw.png', caption: 'MyRuns profile change image dialog fragment.' },
     ],
     overview: [
       `An exercise tracking mobile application created as part of lecture tutorials for Simon Fraser CMPT 362 - Mobile Applications Programming and Design. This project took place throughout the semester with each tutorial building the application up part by part. Users can modify their profile, view past exercise activities and relevant information, and track new activities either manually, with GPS, or automatically with a Weka classifier to determine if the user is walking, running, or standing.`,
@@ -42,16 +42,16 @@ const projectsData: ProjectType[] = [
     topic: 'personal',
     desc: 'Unity C# puzzle platformer built from a 2021 game design document.',
     tags: ['Unity', 'C#'],
-    thumb: 'tiledrop.png',
+    thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004929/tiledrop_tkczgv.png',
     meta: [
       { label: 'Engine', value: 'Unity' },
       { label: 'Language', value: 'C#' },
       { label: 'Team', value: 'Solo' },
     ],
     images: [
-      { src: 'tiledrop_plan.png', caption: 'Level design planning document.' },
-      { src: 'level1.png', caption: 'Level 1 Layout' },
-      { src: 'level2.png', caption: 'Level 2 Layout' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004930/tiledrop_plan_anbdtp.png', caption: 'Level design planning document.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004926/level1_dqhzdk.png', caption: 'Level 1 Layout' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004928/level2_gilult.png', caption: 'Level 2 Layout' },
       { src: 'tileFallGif.gif', caption: 'Tile Fall Mechanic' },
       { src: 'enemyExplosion.gif', caption: 'Enemy Explosion Mechanic' },
       { src: 'doubleJump.gif', caption: 'Double Jump Mechanic' },
@@ -194,17 +194,17 @@ const projectsData: ProjectType[] = [
     topic: 'school',
     desc: 'Python application with GUI to parse .bmp file data and compress and decompress data.',
     tags: ['Python', 'Tkinter'],
-    thumb: 'fileparser.png',
+    thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004872/fileparser_jdr6nr.png',
     meta: [
       { label: 'Language', value: 'Python' },
       { label: 'Libraries', value: 'Tkinter' },
       { label: 'Team', value: 'Solo' },
     ],
     images: [
-      { src: 'fileparser.png', caption: 'File Parser main interface.' },
-      { src: 'mockup.png', caption: 'Initial mockup design.' },
-      { src: 'fileparser_compress.png', caption: 'Compression output.' },
-      { src: 'fileparser_decompress.png', caption: 'Decompression output.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004872/fileparser_jdr6nr.png', caption: 'File Parser main interface.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004874/mockup_k6qc23.png', caption: 'Initial mockup design.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004873/fileparser_compress_mxaxik.png', caption: 'Compression output.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004875/fileparser_decompress_akk58z.png', caption: 'Decompression output.' },
     ],
     overview: [
       `A Python desktop application with a Tkinter GUI for parsing raw .bmp file data, with support for both compression and decompression of bitmap image data.`,
@@ -220,7 +220,7 @@ const projectsData: ProjectType[] = [
     topic: 'school',
     desc: 'scikit-learn pipeline to match users to roasts with GACTT data.',
     tags: ['Python', 'pandas', 'scikit-learn'],
-    thumb: 'coffee.png',
+    thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004854/coffee_rz8pfg.png',
     meta: [
       { label: 'Language', value: 'Python' },
       { label: 'Libraries', value: 'pandas, scikit-learn' },
@@ -228,11 +228,11 @@ const projectsData: ProjectType[] = [
       { label: 'Team', value: 'Solo' },
     ],
     images: [
-      { src: 'coffee.png', caption: 'Coffee Recommender overview.' },
-      { src: 'coffee_favs.png', caption: 'Favourite roast analysis.' },
-      { src: 'coffee_test.png', caption: 'Model test results.' },
-      { src: 'prediction_results.png', caption: 'Prediction results output.' },
-      { src: 'predicted_products.png', caption: 'Predicted product recommendations.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004854/coffee_rz8pfg.png', caption: 'Coffee Recommender overview.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004853/coffee_favs_jrc0ft.png', caption: 'Favourite roast analysis.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004854/coffee_test_bjp9dg.png', caption: 'Model test results.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004855/prediction_results_ouvh5f.png', caption: 'Prediction results output.' },
+      { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004856/predicted_products_wcbevv.png', caption: 'Predicted product recommendations.' },
     ],
     overview: [
       `A machine learning pipeline built with scikit-learn that uses the Great American Coffee Taste Test (GACTT) dataset to match users to coffee roast profiles based on their preferences.`,
@@ -248,7 +248,7 @@ const projectsData: ProjectType[] = [
   topic: 'personal',
   desc: 'Single-page app built with React and TypeScript, featuring component-based architecture, CSS Modules, and client-side navigation.',
   tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-  thumb: 'portfolio.png',
+  thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004908/portfolio_vprrzn.png',
   meta: [
     { label: 'Type', value: 'Personal Project' },
     { label: 'Frontend', value: 'React, TypeScript' },
@@ -257,7 +257,7 @@ const projectsData: ProjectType[] = [
     { label: 'Team', value: 'Solo' },
   ],
   images: [
-    { src: 'portfolio.png', caption: 'This website!' }
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004908/portfolio_vprrzn.png', caption: 'This website!' }
   ],
   overview: [
     `A portfolio SPA rebuilt from a vanilla HTML/CSS/JS site into a React and TypeScript application. Designed around a gallery and detail view pattern with client-side navigation driven by a single useState to simplify navigation. CSS Modules keep component styles scoped, with shared design tokens in a global stylesheet.`,
@@ -279,7 +279,7 @@ const projectsData: ProjectType[] = [
   topic: 'school',
   desc: 'A Textbook Gallery created using HTML, CSS, and Bootstrap grid.',
   tags: ['HTML', 'CSS', 'Bootstrap'],
-  thumb: 'textbookThumb.png',
+  thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004912/textbookThumb_xypnoz.png',
   meta: [
     { label: 'Language', value: 'HTML, CSS' },
     { label: 'Libraries', value: 'Bootstrap' },
@@ -288,10 +288,10 @@ const projectsData: ProjectType[] = [
     { label: 'Completion', value: '2026' },
   ],
   images: [
-    { src: 'textbookThumb.png', caption: 'Textbook Gallery home page' },
-    { src: 'details.png', caption: 'Textbook Gallery Details page' },
-    { src: 'lightmode.png', caption: 'Light Mode' },
-    { src: 'textbooks.gif', caption: 'GIF to show interactivity' }
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004912/textbookThumb_xypnoz.png', caption: 'Textbook Gallery home page' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004909/details_khk63g.png', caption: 'Textbook Gallery Details page' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004910/lightmode_lvhwc6.png', caption: 'Light Mode' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004913/textbooks_ofawhk.gif', caption: 'GIF to show interactivity' }
   ],
   overview: [
     `A textbook gallery website created for SFU's CMPT 272 - Client-side Development course. All of the pages on the website were created with only HTML, CSS, and Bootstrap (for responsive grid layouts). No JavaScript, CSS frameworks or preprocessors were used.`,
@@ -308,7 +308,7 @@ const projectsData: ProjectType[] = [
   topic: 'school',
   desc: 'A fixed format CSV reader with user controlled sort and filter options.',
   tags: ['JavaSctipt', 'HTML', 'CSS', 'Bootstrap'],
-  thumb: 'csvThumb.png',
+  thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004863/csvThumb_dv7stb.png',
   meta: [
     { label: 'Language', value: 'JavaScript, HTML, CSS' },
     { label: 'Libraries', value: 'Bootstrap' },
@@ -317,10 +317,10 @@ const projectsData: ProjectType[] = [
     { label: 'Completion', value: '2026' },
   ],
   images: [
-    { src: 'csvThumb.png', caption: 'CSV Reader Home Page.' },
-    { src: 'modal.png', caption: 'Bootstrap Modal Implementation with File Reader.' },
-    { src: 'sort.png', caption: 'Sort functionality.' },
-    { src: 'sortAndFilter.png', caption: 'Sort and Filter functionality.' }
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004863/csvThumb_dv7stb.png', caption: 'CSV Reader Home Page.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004864/modal_ixkego.png', caption: 'Bootstrap Modal Implementation with File Reader.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004865/sort_lzsuhu.png', caption: 'Sort functionality.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004866/sortAndFilter_o62gzf.png', caption: 'Sort and Filter functionality.' }
   ],
   overview: [
     `A CSV Reader with sort and filter functionality created used HTML, CSS, and JavaScript. It also utilizes Bootstrap for modals and grid implementation. The website lets a user download a .CSV file following the required data layout contraints from the assignment and lets the user modify how the data is displayed through sorting and filtering operations. The two modals are used to create an interface for loading data and a display for showing object details in full.`,
@@ -339,7 +339,7 @@ const projectsData: ProjectType[] = [
   topic: 'school',
   desc: 'A frontend-only React/TypeScript web app for reporting and locating lost animals.',
   tags: ['React', 'TypeScript', 'CSS', 'Bootstrap'],
-  thumb: 'lostThumb.png',
+  thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004883/lostThumb_mgbafp.png',
   meta: [
     { label: 'Language', value: 'TypeScript, CSS' },
     { label: 'Framework', value: 'React' },
@@ -350,14 +350,14 @@ const projectsData: ProjectType[] = [
     { label: 'Completion', value: '2026' },
   ],
   images: [
-    { src: 'lostThumb.png', caption: 'Tail Blazer Home Page.' },
-    { src: 'lostFound.png', caption: 'Filter by Status with related postings and pins.' },
-    { src: 'lostModal.png', caption: 'Selecting a card in the aside will select its pin and display a Bootstrap modal.' },
-    { src: 'lostDetail.png', caption: 'Report Detail Page, opened from pin modal.' },
-    { src: 'lostConfirmFound.png', caption: 'Password is required to modify report to found. Password is hashed with Web Crypto API and persisted with JSONBin.' },
-    { src: 'lostCreateReport.png', caption: 'Create Report Page.' },
-    { src: 'lostHomePageGIF.gif', caption: 'HomePage functionality.' },
-    { src: 'lostCreateReportGIF.gif', caption: 'Report Creation Functionality.' }
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004883/lostThumb_mgbafp.png', caption: 'Tail Blazer Home Page.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004882/lostFound_grrwfd.png', caption: 'Filter by Status with related postings and pins.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004884/lostModal_ept4q7.png', caption: 'Selecting a card in the aside will select its pin and display a Bootstrap modal.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004881/lostDetail_sru5bx.png', caption: 'Report Detail Page, opened from pin modal.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004879/lostConfirmFound_dnpipm.png', caption: 'Password is required to modify report to found. Password is hashed with Web Crypto API and persisted with JSONBin.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004880/lostCreateReport_a4mf1e.png', caption: 'Create Report Page.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004887/lostHomePageGIF_xmqyhr.gif', caption: 'HomePage functionality.' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004886/lostCreateReportGIF_lnnwfh.gif', caption: 'Report Creation Functionality.' }
   ],
   overview: [
     `This web application is a lost animal tracker, allowing users to submit public animal reports with relevant information and last known location. Users can see all reports on a map and carousel and can filter reports based on report status and animal type. The creator of the report can 'mark as found' once resolved - provided they have the password from when they created their report.`,
@@ -379,7 +379,7 @@ const projectsData: ProjectType[] = [
   topic: 'school',
   desc: 'A high-speed game of risk, reward, and betrayal. Can your crew pull off the heist when everyone is in it for themselves?',
   tags: ['Game Design'],
-  thumb: 'board.png',
+  thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004915/board_civyw0.png',
   meta: [
     { label: 'Type', value: 'Board Game' },
     { label: 'Players', value: '2–5' },
@@ -393,15 +393,15 @@ const projectsData: ProjectType[] = [
     { label: 'Rulebook', url: 'https://sites.google.com/view/robberyrush/rules' },
     ],
   images: [
-    { src: 'board.png', caption: 'Robbery Rush Game Board' },
-    { src: 'player inventory.png', caption: 'Player Inventory Sheet' },
-    { src: 'Alarm Token.png', caption: 'Alarm Token Example' },
-    { src: 'Escape Token.png', caption: 'Escape Token Example' },
-    { src: 'Guard Game Token.png', caption: 'Guard Token Example' },
-    { src: 'Holly Game Token.png', caption: 'Player Token Example' },
-    { src: 'You Trip.png', caption: 'Hazard Card Example' },
-    { src: 'shortcut.png', caption: 'Event Card Example' },
-    { src: 'Sutton Hoo Card 2.png', caption: 'Item Card Example' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004915/board_civyw0.png', caption: 'Robbery Rush Game Board' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004917/player_inventory_utmozm.jpg', caption: 'Player Inventory Sheet' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004920/Alarm_Token_ldm8vu.jpg', caption: 'Alarm Token Example' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004922/Escape_Token_glgqaq.jpg', caption: 'Escape Token Example' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004923/Guard_Game_Token_zcczx3.jpg', caption: 'Guard Token Example' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004924/Holly_Game_Token_cvp8pr.jpg', caption: 'Player Token Example' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004921/You_Trip_i0ynqk.jpg', caption: 'Hazard Card Example' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004918/shortcut_qi6vkr.jpg', caption: 'Event Card Example' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004919/Sutton_Hoo_Card_2_k69kxi.jpg', caption: 'Item Card Example' },
   ],
   overview: [
     'Robbery rush is a tile based board game where players start by choosing which heist specialist they want to be, and navigate through a highly secured museum to try and obtain the highest valued loot possible, and escape before they get trapped inside the lockdown.'
@@ -435,7 +435,7 @@ const projectsData: ProjectType[] = [
   topic: 'personal',
   desc: 'An interactive 3D portfolio built in React Three Fiber, inspired by Super Mario 64\'s painting mechanic — navigate between scenes through portal-style transitions.',
   tags:  ['React', 'TypeScript', 'React Three Fiber', 'Rapier'],
-  thumb: 'GalleryCam.png',
+  thumb: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004897/GalleryCam_afmwxg.png',
   meta: [
     { label: 'Languages', value: 'TypeScript' },
     { label: 'Framework', value: 'React, React Three Fiber' },
@@ -448,14 +448,14 @@ const projectsData: ProjectType[] = [
       { label: 'Live Site', url: 'https://dtcoops.github.io/portfolio-3D/' },
     ],
   images: [
-    { src: 'hubRoom.png', caption: 'Hub Room' },
-    { src: 'startScreen.png', caption: 'Opening Scene' },
-    { src: 'loreDump.png', caption: 'The Lore Dump - About Me' },
-    { src: 'GalleryCam.png', caption: 'Gallery Space' },
-    { src: 'loading.png', caption: 'Loading Screen' },
-    { src: 'portal.gif', caption: 'Portal Effect' },
-    { src: 'tileDrop.png', caption: 'Tile Drop Room' },
-    { src: 'TileDropVista.png', caption: 'Tile Drop Vista' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004898/hubRoom_odiroe.png', caption: 'Hub Room' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004901/startScreen_iajvto.png', caption: 'Opening Scene' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004900/loreDump_zk5lrw.png', caption: 'The Lore Dump - About Me' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004897/GalleryCam_afmwxg.png', caption: 'Gallery Space' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004899/loading_xls8ch.png', caption: 'Loading Screen' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004905/portal_zzcagf.gif', caption: 'Portal Effect' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004902/tileDrop_xl46kx.png', caption: 'Tile Drop Room' },
+    { src: 'https://res.cloudinary.com/yjgvv5of/image/upload/v1784004903/TileDropVista_jq1y1g.png', caption: 'Tile Drop Vista' },
   ],
   overview: [
     'A gamified portfolio experience built from scratch in React Three Fiber and Rapier physics — tools I learned specifically for this project. Players navigate a 3D hub world and enter portals to explore different scenes, inspired by the painting mechanic in Super Mario 64.',
