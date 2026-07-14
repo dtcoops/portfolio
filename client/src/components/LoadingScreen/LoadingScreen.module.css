@@ -1,0 +1,83 @@
+.container {
+  margin: 1rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.col {
+  grid-column: span 4;
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .col {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 600px) {
+  .col {
+    grid-column: span 12;
+  }
+}
+
+.card {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.thumb {
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid var(--border);
+}
+
+.cardBody {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titleLine {
+  height: 18px;
+  width: 70%;
+  border-radius: 4px;
+}
+
+.textLine {
+  height: 12px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.textLineShort {
+  height: 12px;
+  width: 60%;
+  border-radius: 4px;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--border) 25%,
+    var(--accent-weak) 60%,
+    var(--border) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

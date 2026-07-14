@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Header, Gallery, ProjectDetail, Footer} from './components';
+import { Header, Gallery, ProjectDetail, Footer, LoadingScreen} from './components';
 
 import type { Project, Topic } from './types';
-
-function LoadingScreen() {
-  return <div>Loading projects...</div>;
-}
 
 function App() {
   const [ projects, setProjects ] = useState<Project[]>([]);
@@ -35,7 +31,16 @@ function App() {
 
   if (loading) {
     return (
+    <>
+      <Header 
+        activeTopic={activeTopic} 
+        onTopicChange={setActiveTopic} 
+        showFilters={!selectedProject} 
+        onBack = {() => setSelectedProject(null) }
+      />
       <LoadingScreen />
+      <Footer />
+    </>
   )};
   if (error) {
     return (
