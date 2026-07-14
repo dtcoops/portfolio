@@ -12,7 +12,7 @@ function App() {
   const [ selectedProject, setSelectedProject ] = useState<Project | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/projects')
+    fetch(`${import.meta.env.VITE_API_URL}/api/projects`)
       .then((res: Response) => {
         if (!res.ok) {
           throw new Error('Failed to fetch projects.');
