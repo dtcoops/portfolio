@@ -3,6 +3,9 @@ import dotenv from 'dotenv';
 import { Project } from '../models/project';
 import type { Project as ProjectType } from '../types/project';
 
+// Call in terminal if changes to array are made
+// npx tsx src/scripts/populateDb.ts 
+
 const projectsData: ProjectType[] = [
   {
     id: 'myruns',
@@ -71,119 +74,57 @@ const projectsData: ProjectType[] = [
       {
         heading: 'The Design',
         points: [
-          `TileDrop is a puzzle platformer where the player must navigate two characters across a chasm of falling tiles. 
-          I kept the mechanics deliberately simple: tiles that fall after a single touch, a standard jump, and a double jump 
-          that ties the two together. This double jump would function similar to a throw, one character would jump ontop of the other to be caught and tossed to the next tile. 
-          To prevent a player from simply hopping linearly across a level, each character was assigned a role - forcing players to think about positioning to solve the puzzles.`,
+          `TileDrop is a puzzle platformer where the player must navigate two characters across a chasm of falling tiles. I kept the mechanics deliberately simple: tiles that fall after a single touch, a standard jump, and a double jump that ties the two together. This double jump would function similar to a throw, one character would jump ontop of the other to be caught and tossed to the next tile. To prevent a player from simply hopping linearly across a level, each character was assigned a role - forcing players to think about positioning to solve the puzzles.`,
 
-          `In my VFS level design class, we were shown Super Mario World's approach to intuitive teaching - the famous first Goomba 
-          encounter works because the level geometry almost guarantees the player jumps on it without being told to. I 
-          tried to apply the same principle: Level 1 has a clear start and end, and is impossible to complete without jumping 
-          onto falling tiles. No instructions needed.`,
+          `In my VFS level design class, we were shown Super Mario World's approach to intuitive teaching - the famous first Goomba encounter works because the level geometry almost guarantees the player jumps on it without being told to. I tried to apply the same principle: Level 1 has a clear start and end, and is impossible to complete without jumping onto falling tiles. No instructions needed.`,
 
-          `Level 2 added the double jump by creating intersecting paths that couldn't be completed without discovering the ability. 
-          I also introduced enemies here, intentionally red as is tradition for danger and in-game explosive elements, and retroactively added a passive  
-          introductory enemy in Level 1 to prime the player for their introduction later, this one in particular is only a threat if 
-          the player deliberately touches it. My intent was to commuincate this early, so that players would know not to touch them when
-          they are introduced in level 2.`,
+          `Level 2 added the double jump by creating intersecting paths that couldn't be completed without discovering the ability. I also introduced enemies here, intentionally red as is tradition for danger and in-game explosive elements, and retroactively added a passive introductory enemy in Level 1 to prime the player for their introduction later, this one in particular is only a threat if the player deliberately touches it. My intent was to commuincate this early, so that players would know not to touch them when they are introduced in level 2.`,
 
-          `Level 3 raised the stakes with moving tiles and more strategically placed enemies. Level 4 was a mastery challenge — no new 
-          mechanics, just everything learned from the previous three levels applied under pressure.`,
+          `Level 3 raised the stakes with moving tiles and more strategically placed enemies. Level 4 was a mastery challenge — no new mechanics, just everything learned from the previous three levels applied under pressure.`,
         ]
       },
       {
         heading: 'The Plan',
         points: [
-          `My goal was to test what I had designed and go beyond following Unity Pathways Tutorials by creating something entirely my own. 
-          Rather than chasing polish or a shippable product, I set a simpler bar: take a design 
-          document and turn it into something fully playable and hopefully - fun. If the blockout worked, 
-          the project was a success.`,
+          `My goal was to test what I had designed and go beyond following Unity Pathways Tutorials by creating something entirely my own. Rather than chasing polish or a shippable product, I set a simpler bar: take a design document and turn it into something fully playable and hopefully - fun. If the blockout worked, the project was a success.`,
         ]
       },
       {
         heading: 'The Build',
         points: [
-          `My approach was deliberately incremental. I started with Level 1's layout and the player controller, getting those working together before 
-          touching anything else. From there I added the tile falling system. Tiles needed to register contact, track remaining lives, change material 
-          to signal state, and fall only after the player breaks contact with the tile. 
-          A minimum Y threshold destroyed both tiles and players after falling to a set depth, keeping the scene clean.`,
+          `My approach was deliberately incremental. I started with Level 1's layout and the player controller, getting those working together before touching anything else. From there I added the tile falling system. Tiles needed to register contact, track remaining lives, change material to signal state, and fall only after the player breaks contact with the tile. A minimum Y threshold destroyed both tiles and players after falling to a set depth, keeping the scene clean.`,
           
-          `With tiles working I turned to enemies. Enemies patrol between points, and I figured that the moving tiles in later levels could be implemeted 
-          in the same way. Rather than writing the same patrol logic twice I abstracted it into a BaseNPC class that both Enemy and Tile inherit from. 
-          This was the first time in the project I had to think architecturally rather than just functionally — the decision saved significant 
-          time later when building Level 3's moving tile section`,
+          `With tiles working I turned to enemies. Enemies patrol between points, and I figured that the moving tiles in later levels could be implemeted in the same way. Rather than writing the same patrol logic twice I abstracted it into a BaseNPC class that both Enemy and Tile inherit from. This was the first time in the project I had to think architecturally rather than just functionally — the decision saved significant time later when building Level 3's moving tile section`,
           
-          `With those systems in place Level 1 was fully buildable and testable. Level 2 introduced 
-          the cooperative throw mechanic, which turned out to be significantly more complex than 
-          anticipated. Detecting roles, storing throw direction from Jumper's last known velocity, 
-          calculating a ballistic arc, and managing physics state across the sequence worked in isolation but introduced bugs when combined. 
-          The throw mechanic also broke the existing tile fall system. The tile's contact tracking relied on 
-          simple collision enter and exit events, but the throw sequence introduced a third state — 
-          a player lifting off a tile while holding another — that the original logic hadn't 
-          accounted for. Resolving it required tracking contacts per player by instance ID and 
-          remembering which players had left while in a holding state, so their subsequent exit 
-          after releasing could be correctly ignored.`,
+          `With those systems in place Level 1 was fully buildable and testable. Level 2 introduced the cooperative throw mechanic, which turned out to be significantly more complex than anticipated. Detecting roles, storing throw direction from Jumper's last known velocity, calculating a ballistic arc, and managing physics state across the sequence worked in isolation but introduced bugs when combined. The throw mechanic also broke the existing tile fall system. The tile's contact tracking relied on simple collision enter and exit events, but the throw sequence introduced a third state — a player lifting off a tile while holding another — that the original logic hadn't accounted for. Resolving it required tracking contacts per player by instance ID and remembering which players had left while in a holding state, so their subsequent exit after releasing could be correctly ignored.`,
           
-          `Midway through implementing the throw I realized I had no level reset function. If a player fell, the level continued in a broken state. 
-          I added a death event system using C#'s event pattern — PlayerController fires OnPlayerDied, GameManager listens and triggers which 
-          reloads the scene. The event pattern kept the two systems decoupled — PlayerController doesn't need to know GameManager exists, 
-          it just broadcasts the event and moves on. A direct reference from PlayerController to GameManager would have worked, but would have created 
-          a tight dependency between two systems that have no reason to know about each other.`,
+          `Midway through implementing the throw I realized I had no level reset function. If a player fell, the level continued in a broken state. I added a death event system using C#'s event pattern — PlayerController fires OnPlayerDied, GameManager listens and triggers which reloads the scene. The event pattern kept the two systems decoupled — PlayerController doesn't need to know GameManager exists, it just broadcasts the event and moves on. A direct reference from PlayerController to GameManager would have worked, but would have created a tight dependency between two systems that have no reason to know about each other.`,
           
-          `To make the full game playable end-to-end I built a SceneManager singleton — a persistent object 
-          that survives scene loads and handles all scene transitions through a single interface. Rather than 
-          any system calling Unity's SceneM anager directly, everything routes through it. This made adding 
-          the level reset, level exit, and sequential level progression a matter of calling one method rather 
-          than scattering scene loading logic across multiple scripts.`,
+          `To make the full game playable end-to-end I built a SceneManager singleton — a persistent object that survives scene loads and handles all scene transitions through a single interface. Rather than any system calling Unity's SceneM anager directly, everything routes through it. This made adding the level reset, level exit, and sequential level progression a matter of calling one method rather than scattering scene loading logic across multiple scripts.`,
 
-          `Level 3 was almost purely a construction task. All the systems were in place, the moving tiles just needed their speeds 
-          calculated to keep them synchronized, enemies needed patrol paths set, and the layout needed to be built out in the engine. 
-          Having a solid foundation meant the final level came together quickly, which felt like a validation 
-          of the incremental approach.` 
+          `Level 3 was almost purely a construction task. All the systems were in place, the moving tiles just needed their speeds calculated to keep them synchronized, enemies needed patrol paths set, and the layout needed to be built out in the engine. Having a solid foundation meant the final level came together quickly, which felt like a validation of the incremental approach.` 
         ]
       },
       {
         heading: `UX`,
         points: [
-          `Designing intuitive controls for two characters on a single input device was one of the 
-          more interesting constraints of the project and something I had not thought about in designing the documentation. 
-          I opted for a held left mouse button to control one character and a held right mouse button for the other — 
-          allowing the player to move each character independently, or hold both to move them simultaneously.`,
+          `Designing intuitive controls for two characters on a single input device was one of the more interesting constraints of the project and something I had not thought about in designing the documentation. I opted for a held left mouse button to control one character and a held right mouse button for the other — allowing the player to move each character independently, or hold both to move them simultaneously.`,
                   
-          `In practice this works, but it is the least intuitive part of the game. The held click as 
-          an activation condition isn't a pattern most players bring from prior experience, and 
-          without any onboarding it requires discovery rather than intuition. This would potentially be more intuitive 
-          with a controller with left and right triggers, the tradeoff is accessibility; it would limit who can play.`,
+          `In practice this works, but it is the least intuitive part of the game. The held click as an activation condition isn't a pattern most players bring from prior experience, and without any onboarding it requires discovery rather than intuition. This would potentially be more intuitive with a controller with left and right triggers, the tradeoff is accessibility; it would limit who can play.`,
           
-          `In a future iteration I would attempt to solve this with visual feedback. The game currently contains UI elements, and there is no indicator of which 
-          character is left and right. This is a shortcoming. To address this, my intent is to introduce a portrait system in the bottom left and right of the screen. 
-          I could then highlight the active player portriat while the mouse is held, associate each character to a protrait, and add small mouse button 
-          icons to the portrait to communicate the control scheme at a glance.`
+          `In a future iteration I would attempt to solve this with visual feedback. The game currently contains UI elements, and there is no indicator of which character is left and right. This is a shortcoming. To address this, my intent is to introduce a portrait system in the bottom left and right of the screen. I could then highlight the active player portriat while the mouse is held, associate each character to a protrait, and add small mouse button icons to the portrait to communicate the control scheme at a glance.`
         ]
       },
       {
         heading: `Retrospective`,
         points: [
-          `The throw mechanic took significantly longer than expected and surfaced something I hadn't 
-          considered: physics event ordering. Unity fires collision events in an order I couldn't 
-          control, which meant game state I assumed would be set wasn't always ready when I needed it. 
-          The fix required tracking state across multiple frames rather than reading it at the moment 
-          of the event.`,
+          `The throw mechanic took significantly longer than expected and surfaced something I hadn't considered: physics event ordering. Unity fires collision events in an order I couldn't control, which meant game state I assumed would be set wasn't always ready when I needed it. The fix required tracking state across multiple frames rather than reading it at the moment of the event.`,
 
-          `The incremental approach was the right call. Having a playable foundation at every 
-          stage meant new systems could be tested against real gameplay immediately, and problems 
-          surfaced early rather than compounding. The BaseNPC decision in particular paid off when Level 3's 
-          moving tiles required exactly the same behaviour as enemies.`,
+          `The incremental approach was the right call. Having a playable foundation at every stage meant new systems could be tested against real gameplay immediately, and problems surfaced early rather than compounding. The BaseNPC decision in particular paid off when Level 3's moving tiles required exactly the same behaviour as enemies.`,
 
-          `If I were starting again I'd prototype the character interaction in isolation before 
-          building levels around it. `,
+          `If I were starting again I'd prototype the character interaction in isolation before building levels around it. `,
 
-          `I also underestimated how much camera choice affects playability. Top-down looked flat and 
-          lost the sense of depth that made the falling tiles feel dangerous. Third person over-the-shoulder 
-          restored that depth but prevented players from seeing the full puzzle which made planning ahead feel 
-          more like guesswork. Orthographic solved both problems: it preserves the three-dimensional read of the 
-          space while keeping the entire layout visible at once, and eliminated the depth perception 
-          issues that had been making jumps feel inconsistent from the start.`
+          `I also underestimated how much camera choice affects playability. Top-down looked flat and lost the sense of depth that made the falling tiles feel dangerous. Third person over-the-shoulder restored that depth but prevented players from seeing the full puzzle which made planning ahead feel more like guesswork. Orthographic solved both problems: it preserves the three-dimensional read of the space while keeping the entire layout visible at once, and eliminated the depth perception issues that had been making jumps feel inconsistent from the start.`
         ]
       }
     ]
@@ -279,33 +220,22 @@ const projectsData: ProjectType[] = [
     {
       heading: 'From Static Site to Full Stack',
       points: [
-        `This project started as a frontend-only SPA — project data lived in a static TypeScript file, bundled directly into the client at build time. 
-        I later rebuilt it as a proper client/server monorepo to get real backend experience: an Express API backed by MongoDB Atlas, with images migrated from bundled assets to Cloudinary. 
-        The client and server deploy independently (the React app to GitHub Pages, the API to Render) communicating over a standard REST endpoint.`,
+        `This project started as a frontend-only SPA — project data lived in a static TypeScript file, bundled directly into the client at build time. I later rebuilt it as a proper client/server monorepo to get real backend experience: an Express API backed by MongoDB Atlas, with images migrated from bundled assets to Cloudinary. The client and server deploy independently (the React app to GitHub Pages, the API to Render) communicating over a standard REST endpoint.`,
 
-        `The migration was deliberately incremental. I got the server talking to MongoDB and returning real data before touching anything else, keeping images as local placeholder strings so I was only ever validating one new piece at a time. 
-        Once that pipeline worked end-to-end locally, I moved on to Cloudinary, then finally to actual deployment.`,
+        `The migration was deliberately incremental. I got the server talking to MongoDB and returning real data before touching anything else, keeping images as local placeholder strings so I was only ever validating one new piece at a time. Once that pipeline worked end-to-end locally, I moved on to Cloudinary, then finally to actual deployment.`,
       ]
     },
     {
       heading: 'Backend Structure',
       points: [
-        `The server follows a standard routes/controllers/models split. A single Project model (Mongoose schema) defines the shape of a project document, matching the same TypeScript interface the client already used. 
-        I duplicated that interface into the server rather than setting up a shared workspace package, a deliberate simplification given the project's scale.`,
+        `The server follows a standard routes/controllers/models split. A single Project model (Mongoose schema) defines the shape of a project document, matching the same TypeScript interface the client already used. I duplicated that interface into the server rather than setting up a shared workspace package, a deliberate simplification given the project's scale.`,
 
-        `Images are hosted on Cloudinary rather than saved to the server's own disk. MongoDB only stores a reference to each image's' URL string, while Cloudinary stores and serves the actual file. 
-        This matters because of how Render's free tier works: its filesystem is ephemeral, meaning any file written directly to disk is deleted on every redeploy or restart. 
-        If image uploads were instead saved to a local folder on the server, they'd work until the next deploy, then silently disappear. By keeping the actual image bytes in Cloudinary and only storing a URL reference in Mongo, 
-        image files never touch Render's disk at all, so there's nothing for a redeploy to wipe out in the first place.`]
+        `Images are hosted on Cloudinary rather than saved to the server's own disk. MongoDB only stores a reference to each image's' URL string, while Cloudinary stores and serves the actual file. This matters because of how Render's free tier works: its filesystem is ephemeral, meaning any file written directly to disk is deleted on every redeploy or restart. If image uploads were instead saved to a local folder on the server, they'd work until the next deploy, then silently disappear. By keeping the actual image bytes in Cloudinary and only storing a URL reference in Mongo, image files never touch Render's disk at all, so there's nothing for a redeploy to wipe out in the first place.`]
     },
     {
       heading: 'Deployment Debugging',
       points: [
-        `Getting this actually live surfaced a handful of real deployment issues I hadn't hit before: 
-        a case-sensitivity bug where a mismatched import (\`Project\` vs \`project\`) worked fine locally on Windows but failed to build on Render's Linux environment; 
-        a CORS misconfiguration from a naming mismatch between my \`.env\` variable and the code reading it; 
-        TypeScript build tools living in \`devDependencies\` getting skipped entirely because Render's production install doesn't install dev dependencies by default; 
-        and an Atlas connection failure that turned out to be an IP allowlist only permitting my own machine, not Render's servers.`,
+        `Getting this actually live surfaced a handful of real deployment issues I hadn't hit before: a case-sensitivity bug where a mismatched import (\`Project\` vs \`project\`) worked fine locally on Windows but failed to build on Render's Linux environment; a CORS misconfiguration from a naming mismatch between my \`.env\` variable and the code reading it; TypeScript build tools living in \`devDependencies\` getting skipped entirely because Render's production install doesn't install dev dependencies by default; and an Atlas connection failure that turned out to be an IP allowlist only permitting my own machine, not Render's servers.`,
 
         `None of these were exotic problems, but each one only appeared once real deployment infrastructure was involved rather than local development — a good reminder that "works on my machine" and "works in production" are genuinely different bars to clear.`,
       ]
@@ -313,9 +243,7 @@ const projectsData: ProjectType[] = [
     {
       heading: 'Handling Cold Starts',
       points: [
-        `Render's free tier spins the server down after roughly 15 minutes of inactivity, meaning the first request after idle time can take 20-30 seconds to respond. 
-        Rather than let that read as a broken site, I built a loading state with skeleton cards matching the gallery's grid layout, with a short message explaining the delay; 
-        so, a slow first load looks intentional rather than stuck. In testing, an actual cold start took about 11 seconds, comfortably inside the window I'd designed for.`,
+        `Render's free tier spins the server down after roughly 15 minutes of inactivity, meaning the first request after idle time can take 20-30 seconds to respond. Rather than let that read as a broken site, I built a loading state with skeleton cards matching the gallery's grid layout, with a short message explaining the delay; so, a slow first load looks intentional rather than stuck. In testing, an actual cold start took about 11 seconds, comfortably inside the window I'd designed for.`,
       ]
     },
   ]
@@ -460,8 +388,7 @@ const projectsData: ProjectType[] = [
       points: [
         'Developed as a 5-person team project for SFU IAT 210.',
         'I was involved across all stages from ideation to final prototype. My primary responsibilities were game inspiration, writing and designing the rulebook, and generating the visual assets using Google Flow - board, cards, token, inventory sheets - to create the visual components for the website and game.',
-        'The project followed a structured design process: group ideation and concept development, iterative playtesting with documented feedback, mechanical refinement based on test results, and final production of all game components and the project website.',        
-      ]
+        `The project followed a structured design process: group ideation and concept development, iterative playtesting using paper prototypes with documented feedback, mechanical refinement based on test results, and production of pitch-ready visual assets and a project website — aimed at a pitch-ready state rather than a finished retail product.` ]
     },
     {
       heading: 'Key Design Decisions',

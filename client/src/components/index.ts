@@ -6,3 +6,7 @@ export * from "./ProjectCard/ProjectCard";
 export * from "./ProjectDetail/ProjectDetail";
 export * from "./Footer/Footer";
 export * from "./LoadingScreen/LoadingScreen";
+export * from './AdminLoginModal/AdminLoginModal';
+export * from './NewProjectCard/NewProjectCard';
+export * from './ProjectDetailPage/ProjectDetailPage';
+export * from './ProjectForm/ProjectForm';
