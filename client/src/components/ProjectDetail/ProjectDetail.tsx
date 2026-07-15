@@ -5,15 +5,38 @@ import style from './ProjectDetail.module.css';
 
 interface ProjectDetailProps {
   project: Project
+  isAdmin?: boolean
+  onEdit?: () => void
+  onDelete?: () => void
 }
 
-function ProjectDetail({ project }: ProjectDetailProps) {
+function ProjectDetail({ project, isAdmin = false, onEdit, onDelete }: ProjectDetailProps) {
   const [activeImg, setActiveImg] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const handleDeleteClick = () => {
+    if (window.confirm(`Delete "${project.title}"?`)) {
+      onDelete?.();
+    }
+  };
 
   return (
     <main className={`${style.section} ${style.container} ${style.projectLayout}`}>
       <aside className={style.projectMeta}>
+         {isAdmin && (onEdit || onDelete) && (
+          <div className={style.adminControls}>
+            {onEdit && (
+              <button className={style.editButton} onClick={onEdit}>
+                Edit
+              </button>
+            )}
+            {onDelete && (
+              <button className={style.deleteButton} onClick={handleDeleteClick}>
+                Delete
+              </button>
+            )}
+          </div>
+        )}
 
         {project.meta.map((item) => (
           <div key={item.label} className={style.metaItem}>

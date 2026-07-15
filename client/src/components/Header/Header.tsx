@@ -7,6 +7,7 @@ interface HeaderProps {
     onTopicChange: (topic: Topic) => void
     showFilters?: boolean
     onBack: () => void
+    isAdminMode?: boolean
 }
 
 const topics: { label: string; value: Topic }[] = [
@@ -15,11 +16,14 @@ const topics: { label: string; value: Topic }[] = [
   { label: 'School', value: 'school' },
 ]
 
-function Header({ activeTopic, onTopicChange, showFilters = true, onBack }: HeaderProps) {
+function Header({ activeTopic, onTopicChange, showFilters = true, onBack, isAdminMode = false }: HeaderProps) {
   return (
-    <header className={style.topbar}>
+    <header className={`${style.topbar} ${isAdminMode ? style.adminTopbar : ''}`}>
         <div className={`${style.container} ${style.topbarInner}`}>
-            <span className={style.brand}>Daniel Cooper</span>
+            <span className={style.brand}>
+                Daniel Cooper
+                {isAdminMode && <span className={style.adminBadge}>ADMIN</span>}
+            </span>
             {!showFilters && (<button className={style.backButton} onClick={onBack}>
             Back
             </button>
