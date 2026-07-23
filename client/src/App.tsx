@@ -19,7 +19,7 @@ function App() {
   const [ selectedProject, setSelectedProject ] = useState<Project | null | undefined>(undefined);
 
   const BASE_URL = import.meta.env.VITE_API_URL;
-
+  
   const handleDeleteProject = async (id: string) => {
     try {
       const res = await fetch(`${BASE_URL}/api/projects/${id}`, {
@@ -82,6 +82,10 @@ function App() {
         setLoading(false);
       })
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedProject]);
 
   let mainContent;
   if (error) {
